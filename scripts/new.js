@@ -22,7 +22,7 @@ $(function ()
     FeatureType = {'Room': 0, 'Bath': 0, 'Bed': 0},
     FlatsData = new Array(),
     StepDataShow = 2,
-    OldHotelImages = ['1276309727_slider01.jpg', '80904948_slider02.jpg', '1807484928_slider03.jpg'];
+    OldHotelImages = ['80904948_slider02.jpg', '1807484928_slider03.jpg', '2002254929_hotel1.jpg', '915906241_Reception.jpg', '1542462680_hotel4.jpg'];
     NewHotelImages = new Array();
     RemovedHotelImages = new Array();
 
@@ -218,7 +218,7 @@ $(function ()
             </td><td>${Word[msg[indexInArray].View]}
             </td><td>${msg[indexInArray].Area}
             </td><td>${msg[indexInArray].UserName}
-            </td><td><a class="DeleteAnyFlat text-danger me-3" role="botton" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash"></i></a><a href="#" class="LinkShowFlat text-info" aria-label="${Word.Show}" data-balloon-pos="up"><i class="far fa-eye fs-5"></i></a></td></tr>`
+            </td><td><a class="DeleteAnyFlat text-danger me-3" role="botton" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash"></i></a><a href="/Daarna-Hotel/single-flat.php" class="LinkShowFlat text-info" aria-label="${Word.Show}" data-balloon-pos="up"><i class="far fa-eye fs-5"></i></a></td></tr>`
           });
         }
         $('.table-customize-flat .container').append(`
@@ -423,8 +423,27 @@ $(function ()
       });
       preview.slick({
         infinite: false,
+        speed: 300,
         slidesToShow: 4,
-        slidesToScroll: 1
+        slidesToScroll: 4,
+        responsive:[
+          {
+            breakpoint: 1024,
+            settings: {
+              arrows: false,
+              slidesToShow: 3,
+              slidesToScroll: 3,
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              arrows: false,
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          }
+        ]
       });
     }
     /**
@@ -439,11 +458,11 @@ $(function ()
       });
       HotelImages.slick({
         infinite: true,
+        arrows: false,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
-        arrows: false
       });
       var data = new FormData();
       data.append("GETFlats", "");
@@ -471,6 +490,75 @@ $(function ()
         }
       });
     }
+    /**
+      ********* Show All Images In Single Flat ************
+    */
+    else if ($('body').attr('id') == 'flatPage')
+    {
+      $('#flatimages').slick({
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        rows: 2,
+        infinite: false,
+        responsive:[
+          {
+            breakpoint: 1024,
+            settings: {
+              arrows: false,
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              rows: 2,
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              arrows: false,
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              rows: 2,
+            }
+          }
+        ]
+      });
+      var data = new FormData();
+      data.append("ShowFeature", "");
+      var response = SendRequest("POST", data, "json");
+      response.done(function (msg)
+      {
+        data = '';
+        if (msg.length > 0) 
+        {
+          $.each(msg, function (indexInArray) 
+          { 
+              data += `<tr><td>${msg[indexInArray].Id}
+              </td><td>${(msg[indexInArray].FeatureId == 1 ? Word.Room : (msg[indexInArray].FeatureId == 2 ? Word.Bath : (msg[indexInArray].FeatureId == 3 ? Word.Bed : (msg[indexInArray].FeatureId == 4 ? Word.TV : (msg[indexInArray].FeatureId == 5 ? Word.AC : (msg[indexInArray].FeatureId == 6 ? Word.Stove : (msg[indexInArray].FeatureId == 7 ? Word.Oven : (msg[indexInArray].FeatureId == 8 ? Word.Fridge : (msg[indexInArray].FeatureId == 9 ? Word.Laundry : Word.Cooler)))))))))}
+              </td><td>${msg[indexInArray].Details}
+              </td><td>${msg[indexInArray].Price}
+              </td><td>${msg[indexInArray].UserName}
+              </td><td><a class="DeleteAnyFeature text-danger" role="botton" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fas fa-trash-alt fs-6"></i></a></td></tr>`
+            });
+        }
+        $('.section-flat-feature .container').append(`
+          <div class="table-responsive overflow-visible">
+            <table class="table table-hover table-bordered table-striped text-center" id="table">
+              <thead>
+                <tr>
+                  <th scope="col">${Word.FeatureId}</th>
+                  <th scope="col">${Word.FeatureName}</th>
+                  <th scope="col">${Word.Details}</th>
+                  <th scope="col">${Word.Price}</th>
+                  <th scope="col">${Word.Quantity}</th>
+                  <th scope="col">${Word.Processes}</th>
+                </tr>
+              </thead>
+              <tbody class="responseFeature align-middle">${data}</tbody>
+            </table>
+          </div>`
+        )
+        runTable();
+      });
+    }
   }
 
   /*
@@ -486,12 +574,12 @@ $(function ()
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-lg-8">
-                <img src="photos/${FlatsData[index]['MainImage']}" class="img-fluid rounded-start p-2" Style="height:255px" alt="Flats">
+                <img src="photos/${FlatsData[index]['MainImage']}" class="img-fluid rounded-start p-2" alt="Flats">
               </div>
               <div class="col-lg-4">
                 <div class="card-body p-2 pt-lg-3">
                   <h5 class="card-title">FL ${FlatsData[index]['FloorId']} - Flat ${FlatsData[index]['FlatId']}</h5>
-                  <div class=" fs-5 card-text">
+                  <div class="fs-5 card-text">
                     <div class="row">
                       <div class="col-2 col-lg-2">
                         <i class="fa-solid fa-binoculars"></i>
@@ -541,7 +629,7 @@ $(function ()
               </div>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn hvr-icon-back shadow-none"><i class="fas fa-arrow-circle-left hvr-icon mx-2"></i>${Word.MoreDetails}</a>
+              <a href="single-flat.php" class="btn hvr-icon-back shadow-none"><i class="fas fa-arrow-circle-left hvr-icon mx-2"></i>${Word.MoreDetails}</a>
             </div>
           </div>
         </div>`
@@ -1169,7 +1257,7 @@ $(function ()
 
   /*
     **********************************
-    *********** Flat Page ************
+    *********** Flats Page ***********
     **********************************
   */
 
@@ -1457,6 +1545,63 @@ $(function ()
       $('#confirmTheDelete').modal('hide');
       DisplayData();
     });
+  });
+
+  /***********************************************************************************/
+
+  /*
+    **********************************
+    ******* Single Flat Page *********
+    **********************************
+  */
+  $('#calendar').fullCalendar({
+    theme: true,
+    droppable: true,
+    selectable: true,
+    contentHeight: 450,
+    selectAllow: function(selectInfo) {
+      //since we're only interested in whole days, set all times to the start/end of their respective day
+      selectInfo.start.startOf("day");
+      selectInfo.end.startOf("day");
+      
+      var evts = $("#calendar").fullCalendar("clientEvents", function(evt) {
+        var st = evt.start.clone().startOf("day");
+        if (evt.end) { var ed = evt.end.clone().startOf("day"); }
+        else { ed = st; }
+
+        //return true if the event overlaps with the selection
+        return (selectInfo.start.isSameOrBefore(ed) && selectInfo.end.isSameOrAfter(st));
+      });
+
+      //return true if there are no events overlapping that day
+      return evts.length == 0;
+    },
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: ''
+    }
+  });
+
+  /**
+    * Flat Evaluation Slick
+  */
+  $('.flat-evaluation').slick({
+    infinite: false,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          arrows: false,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+        }
+      }
+    ]
   });
 });
 

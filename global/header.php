@@ -16,8 +16,8 @@
       <link rel='stylesheet' href='/Daarna-Hotel/styles/dropzone.min.css'>
       <link rel='stylesheet' href='/Daarna-Hotel/styles/slick.min.css'>
       <link rel='stylesheet' href='/Daarna-Hotel/styles/slick-theme.min.css'>
+      <link rel='stylesheet' href='/Daarna-Hotel/styles/fullCalendar.min.css'>
       <link rel="preconnect" href="https://fonts.gstatic.com">
-      <link rel='stylesheet' href='/Daarna-Hotel/styles/fullcalendar.min.css'>
     </head>
     <body id="<?php echo $Page; ?>">
       <!-- Start Scroll To Top -->
@@ -35,27 +35,22 @@
             <i class="fas fa-ellipsis-v fs-3"></i>
           </button>
           <div class="collapse navbar-collapse" id="nav-info">
-            <?php 
-              // if($Page === 'DaarnaHotel' || $Page === 'LogIn' || $Page === 'notFound')
-              // {
-                ?>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold text-decoration-none text-uppercase" href="i.html"><?php echo 'About'; ?></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold text-decoration-none text-uppercase" href="#"><?php echo $lang['Work']; ?></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold text-decoration-none text-uppercase" href="#"><?php echo $lang['Blog']; ?></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold text-decoration-none text-uppercase" href="#"><?php echo $lang['Contact']; ?></a>
-                  </li>
-                </ul>
-                <?php
-              // }
-            ?>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link fw-bold text-decoration-none text-uppercase" href="/Daarna-Hotel/index.php #SectionFlatsShow"><?php echo $lang['Flats']; ?></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-bold text-decoration-none text-uppercase" href="/Daarna-Hotel/index.php #SectionAbout"><?php echo $lang['AboutHotel']; ?></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-bold text-decoration-none text-uppercase" href="/Daarna-Hotel/index.php #"><?php echo $lang['Blog']; ?></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-bold text-decoration-none text-uppercase lang" id="lang" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?php echo $lang['Lang']; ?>">
+                  <i class="fa-solid fa-language fs-4 fa-fw"></i>
+                </a>
+              </li>
+            </ul>
           </div>
           <?php
             if ($Page !== 'LogIn') 
@@ -94,7 +89,6 @@
           <!-- Start Offcanvas -->
           <div class="offcanvas offcanvas-start" tabindex="-1" id="MenuAdmin" aria-labelledby="Admin">
             <div class="offcanvas-header text-center d-block">
-              <button type="button" class="btn-close text-reset d-block ms-auto shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               <span class="user-icon rounded-circle d-block text-uppercase m-auto">
                 <?php echo substr($_SESSION['Admin'], 0, 1); ?>
               </span>

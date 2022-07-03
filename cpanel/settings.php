@@ -44,7 +44,7 @@
                   <div class="col-12 d-flex justify-content-center">
                     <div class="form-floating m-1 w-75">
                       <input type="tel" class="form-control" name="Phone" id="Phone" pattern="[0][9][0-9]{8}" value="0990416940" required>
-                      <a tabindex="0" role="button" class="position-absolute invisible top-0 end-0 mt-3 px-5" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Enter a valid phone number that works on the Syrian network">
+                      <a tabindex="0" role="button" class="position-absolute Phone top-0 end-0 mt-3 mx-5" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Enter a valid phone number that works on the Syrian network">
                         <i class="fas fa-info-circle"></i>
                       </a>
                       <label for="Phone"><i class="fas fa-mobile-alt me-1"></i><?php echo $lang['Phone']; ?></label>
@@ -243,19 +243,17 @@
                   <div class="row">
                     <div class="col-12 my-3">
                       <div action="/Daarna-Hotel/global/DBOperations.php" class="dropzone bg-opacity-50" id="my-drop">
-                        <!-- <div class="dz-default dz-message">
-                          <i class="fa fa-upload fs-3"></i>
-
-                        </div> -->
+                        
                       </div>
                     </div>
                     <div class="col-12 mb-3" id="preview">
+                      
                     </div>
                   </div>
                 </div>
               </div>
               <div class="modal-footer pt-2 pb-0">
-                <button type="submit" id="ButtonAddFeature" class="btn btn-success"><i class="fas fa-check-double align-middle"></i> <?php echo $lang['Save']; ?></button>
+                <button type="submit" id="ButtonAddFeature" class="btn btn-outline-success shadow-none"><i class="fas fa-check-double align-middle"></i> <?php echo $lang['Save']; ?></button>
               </div>
             </form>
           </div>

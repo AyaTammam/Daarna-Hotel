@@ -75,6 +75,39 @@
     </div>
   </div>
 
+  <ul class="list-unstyled lh-base">
+    <li class="d-flex justify-content-between py-2">
+      <span>
+        <i class="fa-solid fa-binoculars fa-fw"></i> Title
+      </span>
+      <span>Value</span>
+    </li>
+    <li class="d-flex justify-content-between py-2">
+      <span>
+        <i class="fa-solid fa-house fa-fw"></i> Title
+      </span>
+      <span>Value</span>
+    </li>
+    <li class="d-flex justify-content-between py-2">
+      <span>
+        <i class="fa-solid fa-bed fa-fw"></i> Title
+      </span>
+      <span>Value</span>
+    </li>
+    <li class="d-flex justify-content-between py-2">
+      <span>
+        <i class="fa-solid fa-dollar-sign fa-fw"></i> Title
+      </span>
+      <span>Value</span>
+    </li>
+    <li class="d-flex justify-content-between py-2">
+      <span>
+        <i class="far fa-star text-light"></i> Title
+      </span>
+      <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="This flat was rated by '07' people">Value</span>
+    </li>
+  </ul>
+
 document.documentElement.style
   .setProperty('--color-InputBoxShadowSelect', $(this).val());
 <!-- معلومات عن الشركة
@@ -146,6 +179,127 @@ document.documentElement.style
               }
             }
           }?> -->
+
+<div class="container">
+      <h1 class="pb-2"><?php echo $lang['AboutHotel'] ?></h1>
+      <!-- <div id="carouselFlatEvaluation" class="carousel slide" data-ride="carousel" data-interval="1000000000000"> -->
+        <div class="single-item">
+          <!-- <div class="carousel-item active"> -->
+            <!-- <img src="photos/cloud.webp" alt="..." class="d-block w-100"> -->
+            <div>
+              <img src="photos/cloud.webp" alt="..." class="d-block w-100 img-fluid">
+              <h5>...</h5>
+              <p>...</p>
+            </div>
+          <!-- </div> -->
+          <!-- <div class="carousel-item"> -->
+            <!-- <img src="photos/cloud.webp" alt="..." class="d-block w-100"> -->
+            <div>
+              <img src="photos/cloud.webp" alt="..." class="d-block w-100">
+              <h5>...</h5>
+              <p>...</p>
+            </div>
+          <!-- </div> -->
+          <!-- <div class="carousel-item"> -->
+            <!-- <img src="photos/cloud.webp" alt="..." class="d-block w-100"> -->
+            <div>
+              <img src="photos/cloud.webp" alt="..." class="d-block w-100">
+              <h5>...</h5>
+              <p>...</p>
+            </div>
+          <!-- </div> -->
+        </div>
+        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselFlatEvaluation" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselFlatEvaluation" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button> -->
+        <!-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a> -->
+      <!-- </div> -->
+      <!-- <div id="carouselFlatEvaluation" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="carousel-caption d-none d-md-block">
+              <img src="photos/cloud.webp" class="d-block w-100" alt="...">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-caption d-none d-md-block">
+              <img src="photos/cloud.webp" class="d-block w-100" alt="...">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-caption d-none d-md-block">
+              <img src="photos/cloud.webp" class="d-block w-100" alt="...">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselFlatEvaluation" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselFlatEvaluation" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> -->
+    </div>
+    <!-- <div class="container">
+      <div class="testimonials">
+        <div id="testimonials" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="carousel-caption d-none d-block">
+                <img src="img/avatar01.png" alt="...">
+                <h3>Mohamed Faragallah</h3>
+                <span>Company CEO</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nq</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="carousel-caption d-none d-block">
+                <img src="img/avatar01.png" alt="...">
+                <h3>Ahmed Mosaad</h3>
+                <span>Company Manager</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nq</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="carousel-caption d-none d-block">
+                <img src="img/avatar01.png" alt="...">
+                <h3>John Skeet</h3>
+                <span>Free Lancer</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nq</p>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#testimonials" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#testimonials" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div> -->
 
 <!-- Show Message When Field Is Empty
   $('[required]').blur(function ()

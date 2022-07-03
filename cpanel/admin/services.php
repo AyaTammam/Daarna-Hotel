@@ -30,7 +30,6 @@
             <div class="modal-content" id="AddServiceTemplate">
               <div class="modal-header">
                 <h5 class="modal-title" id="HeaderAddService"><?php echo $lang['NewService']; ?></h5>
-                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <form class="row was-validated FormNewService" id="FormNewService">
@@ -54,7 +53,6 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title text-warning" id="WarningTitle"><i class="fas fa-exclamation me-2 fs-5"></i><?php echo $lang['Warning']; ?></h5>
-                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <div class="d-flex align-items-center" role="alert">

@@ -82,6 +82,11 @@ body {
 ****** Group SeconderText ******
 ********************************
 */
+.section-flat-evaluation,
+.section-flat-feature,
+.section-booking-now,
+.section-booking-now .Phone,
+.section-single-flat,
 .SectionFlatsShow,.SectionAbout,
 .SectionFlatsShow .accordion-button,
 .SectionFlatsShow .card-footer a, /* HomePage */
@@ -90,7 +95,7 @@ body {
 .offcanvas .offcanvas-header h5,
 .offcanvas .nav-link,
 .offcanvas .offcanvas-body .accordion-item .one,
-.pageLogin, .NotFound, .MyProfile, .SiteSettings, .statsAdmin, .statsAdmin .card-footer a,
+.pageLogin, .NotFound, .MyProfile, .MyProfile .Phone, .SiteSettings, .statsAdmin, .statsAdmin .card-footer a,
 .table-customize-employees, .table-customize-floor, .modal-body .content /* .table-customize-floor */,
 .table-customize-flat, .SectionAddFlat, .SectionAddFlat .FormNewFlat, .ComfirmAddFeatureToFlat .modal-content,
 .table-customize-feature, .CostumizeModalFeature .modal-content /* .table-customize-feature */,
@@ -282,15 +287,15 @@ input[type = 'color']::-moz-color-swatch {
 .FormSiteStyle .dzImgPreview .remove_image { color: var(--color-SecondaryText);}
 
 @media (max-width: 575.98px) {
-  .FormSiteStyle .dzRemoveImg { padding: 10px 0 !important; margin: 0px !important;}
+  .FormSiteStyle .dzRemoveImg { padding: 50px 0px 50px 20px !important; margin: 10px 0px !important;}
 }
 
 @media (min-width: 576px) {
-  .FormSiteStyle .dzRemoveImg { padding: 10px 0 !important; margin: 10px 0 !important;}
+  .FormSiteStyle .dzRemoveImg { padding: 30px 0 !important; margin: 10px 0 !important;}
 }
 
 @media (min-width: 991px) {
-  .FormSiteStyle .dzRemoveImg { padding: 50px 0 !important;}
+  .FormSiteStyle .dzRemoveImg { padding: 40px 0 !important;}
 }
 
 .FormSiteStyle .slick-arrow::before { color: var(--color-SecondaryText);}
@@ -324,7 +329,7 @@ input[type = 'color']::-moz-color-swatch {
 
 .accordion-body .FormSearch .fa-star { cursor: pointer;} 
 
-.fa-star { color: #aa8220;} 
+.fa-star { color: #aa8220 !important;}
 
 /* End Floors Admin */
 
@@ -397,6 +402,26 @@ input[type='file']::-webkit-file-upload-button { display: none; }
 .blur { filter: blur(5px);}
 
 /* End Add Flat */
+
+/* Start Single Flat Style */
+
+.section-single-flat .thumbnails .row > div {
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+}
+.section-single-flat .thumbnails .row > div img {
+  object-fit: cover;
+  flex-grow: 1;
+  padding: 1px;
+  opacity: .5;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+.section-single-flat .thumbnails .row > div img.active,
+.section-single-flat .thumbnails .row > div img:hover {background-color: var(--color-PrimaryText); opacity: 1;}
+
+/* End Single Flat Style */
 
 /* Start Home Page */
 
@@ -587,20 +612,3 @@ input[type='file']::-webkit-file-upload-button { display: none; }
 .dt-table th.dt-sorter.asc::after,.dt-table th.dt-sorter.desc::before{opacity:0.6}
 
 .hidden{display:none !important;opacity:0 !important}
-
-/* Single Flat Style */
-.single-flat .thumbnails .row > div {
-  height: 100px;
-  overflow: hidden;
-  display: flex;
-}
-.single-flat .thumbnails .row > div img {
-  object-fit: cover;
-  flex-grow: 1;
-  padding: 1px;
-  opacity: .5;
-  transition: all .3s ease-in-out;
-  cursor: pointer;
-}
-.single-flat .thumbnails .row > div img.active,
-.single-flat .thumbnails .row > div img:hover {background-color: var(--color-PrimaryText); opacity: 1;}

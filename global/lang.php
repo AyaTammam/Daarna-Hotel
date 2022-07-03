@@ -83,6 +83,7 @@
 
     // Flat Admin Page
     'Flats' => 'Flats',
+    'Flat' => 'Flat',
     'FlatId' => 'Flat ID',
     'AddFlat' => 'Add Flat',
     'RoomsCount' => 'Rooms Count',
@@ -105,7 +106,7 @@
     'Warning' => 'Warning',
     'Quantity' => 'Quantity',
     'Warning:NoHotelFeaturesHaveBeenIntroducedYet' => 'Warning: No Hotel Features Have Been Introduced Yet',
-    'FlatFeatures:' => 'Flat Features:',
+    'FlatFeatures' => 'Flat Features:',
     'Rooms' => 'Rooms',
     'Bathrooms' => 'Bathrooms',
     'Beds' => 'Beds',
@@ -161,7 +162,7 @@
     //Table
     'Search' => 'Search',
     'ElemnetsOnEachPage' => 'Elemnets On Each Page',
-    'ThereAreNoResult' => 'Oops! No results found',
+    'ThereAreNoResult' => 'No results found',
     'From' => 'From',
     'OutOf' => 'Out Of',
     'Records' => 'Records',
@@ -174,6 +175,16 @@
     'All' => 'All',
     'Rate' => 'Rate',
     'Search' => 'Search',
+
+    // Single Flat Page
+    'BookingNow' => 'Booking Now',
+    'FlatData' => 'Flat Data',
+    'NationalId' => 'National Id',
+    'IDImage' => 'ID Image',
+    'AccountImage' => 'Account Image',
+    'FlatEvaluation' => 'Flat Evaluation',
+    'EntryDate' => 'Entry Date',
+    'ExitDate' => 'Exit Date',
 
     // Footer
     'HotelName' => 'Daarna Hotel',
@@ -273,6 +284,7 @@
 
     // Flat Admin Page
     'Flats' => 'الشقق',
+    'Flat' => 'الشقة',
     'FlatId' => 'رقم الشقة',
     'AddFlat' => 'إضافة شقة',
     'RoomsCount' => 'عدد الغرف',
@@ -295,7 +307,7 @@
     'Warning' => 'تحذير',
     'Quantity' => 'الكمية',
     'Warning:NoHotelFeaturesHaveBeenIntroducedYet' => 'تحذير: لم يتم إدخال الميزات الأساسية للفندق',
-    'FlatFeatures:' => 'ميزات الشقة:',
+    'FlatFeatures' => 'ميزات الشقة:',
     'Warning:NoPrimaryFeaturesHaveBeenSelectedYet.' => '.تحذير: لم يتم إختيار ميزات الغرفة الأساسية بعد',
 
     // Features Admin Page
@@ -359,6 +371,17 @@
     'NotRated' => 'لم يتم تقييمه ',
     'Rate' => 'التقييم',
     'Search' => 'البحث',
+
+    // Single Flat Page
+    'BookingNow' => 'احجز الآن',
+    'FlatData' => 'معلومات عن الشقة',
+    'NationalId' => 'رقم الوطني',
+    'IDImage' => 'صورة الهوية',
+    'AccountImage' => 'صورة الحساب',
+    'FlatEvaluation' => 'تقييم الشقة',
+    'EntryDate' => 'تاريخ الدخول',
+    'ExitDate' => 'تاريخ الخروج',
+
 
     // Footer
     'HotelName' => 'دارنا أوتيل',

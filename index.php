@@ -8,10 +8,11 @@
   ?>
   <!-- Start Carousel -->
   <section class="Carousel pb-3" id="HotelImages">
+    
   </section>
   <!-- End Carousel -->
   <!-- Start Flats Show Section -->
-  <section class="SectionFlatsShow text-center py-4">
+  <section class="SectionFlatsShow text-center py-4" id="SectionFlatsShow">
     <div class="container">
       <h1 class="pb-2"><?php echo $lang['Hotel'] . ' ' . $lang['Flats']; ?></h1>
       <!-- Start Accordion -->
@@ -64,14 +65,14 @@
                   </select>
                 </div>
                 <div class="col-6 mb-2">
-                <label class="form-label"><?php echo $lang['Rate']; ?></label>
-                <div class="fs-2 d-flex justify-content-evenly align-items-end">
-                  <i class="fa-regular fa-star" id="1"></i>
-                  <i class="fa-regular fa-star" id="2"></i>
-                  <i class="fa-regular fa-star" id="3"></i>
-                  <i class="fa-regular fa-star" id="4"></i>
-                  <i class="fa-regular fa-star" id="5"></i>
-                </div>
+                  <label class="form-label"><?php echo $lang['Rate']; ?></label>
+                  <div class="fs-2 d-flex justify-content-evenly align-items-end">
+                    <i class="fa-regular fa-star" id="1"></i>
+                    <i class="fa-regular fa-star" id="2"></i>
+                    <i class="fa-regular fa-star" id="3"></i>
+                    <i class="fa-regular fa-star" id="4"></i>
+                    <i class="fa-regular fa-star" id="5"></i>
+                  </div>
                 </div>
                 <div class="col-12">
                   <button class="btn btn-outline-success hvr-wobble-horizontal shadow-none" type="submit" id="BottomSearch"><?php echo $lang['Search']; ?></button>
@@ -90,32 +91,32 @@
   <!-- End Flats Show Section -->
   <!-- Start Section -->
   <section class="two text-center">
-          <div class="container">
-              <h2 class="h1 tw">Section #2</h2>
-              <div class="row">
-                  <div class="col">
-                      <h2>Section #2</h2>
-                      <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit odio molestias eveniet ut. Velit minus ex quos ea ab, modi, nam illum illo numquam sequi perferendis impedit ratione a. Natus.</p>
-                  </div>
-                  <div class="col">
-                      <h2>Section #2</h2>
-                      <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit odio molestias eveniet ut. Velit minus ex quos ea ab, modi, nam illum illo numquam sequi perferendis impedit ratione a. Natus.</p>
-                  </div>
-                  <div class="col">
-                      <h2>Section #2</h2>
-                      <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit odio molestias eveniet ut. Velit minus ex quos ea ab, modi, nam illum illo numquam sequi perferendis impedit ratione a. Natus.</p>
-                  </div>
-              </div>
-          </div>
+    <div class="container">
+      <h2 class="h1 tw">Section #2</h2>
+      <div class="row">
+        <div class="col">
+          <h2>Section #2</h2>
+          <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit odio molestias eveniet ut. Velit minus ex quos ea ab, modi, nam illum illo numquam sequi perferendis impedit ratione a. Natus.</p>
+        </div>
+        <div class="col">
+          <h2>Section #2</h2>
+          <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit odio molestias eveniet ut. Velit minus ex quos ea ab, modi, nam illum illo numquam sequi perferendis impedit ratione a. Natus.</p>
+        </div>
+        <div class="col">
+          <h2>Section #2</h2>
+          <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit odio molestias eveniet ut. Velit minus ex quos ea ab, modi, nam illum illo numquam sequi perferendis impedit ratione a. Natus.</p>
+        </div>
+      </div>
+    </div>
   </section>
   <!-- End Section -->
   <!-- Start Section -->
-  <section class="SectionAbout text-center py-4">
+  <section class="SectionAbout text-center py-4" id="SectionAbout">
     <div class="container">
       <h1 class="pb-2"><?php echo $lang['AboutHotel'] ?></h1>
       <div class="row">
         <div class="col">
-            <p class="lead"><?php echo $lang['About'] ?></p>
+          <p class="lead"><?php echo $lang['About'] ?></p>
         </div>
       </div>
     </div>
