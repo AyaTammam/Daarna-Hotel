@@ -68,31 +68,37 @@
           <ul class="list-unstyled lh-base">
             <li class="d-flex justify-content-between py-2">
               <span>
-                <i class="fa-solid fa-binoculars fa-fw"></i> Title
+                <i class="fa-solid fa-binoculars fa-fw"></i> View
+              </span>
+              <span>Value</span>
+            </li>
+            <li class="d-flex justify-content-between py-2">
+              <span>
+                <i class="fa-solid fa-maximize"></i>  Area
               </span>
               <span>Value</span>
             </li>
             <li class="d-flex justify-content-between py-2">
                 <span>
-                  <i class="fa-solid fa-house fa-fw"></i> Title
+                  <i class="fa-solid fa-house fa-fw"></i> Rooms
                 </span>
                 <span>Value</span>
             </li>
             <li class="d-flex justify-content-between py-2">
                 <span>
-                  <i class="fa-solid fa-bed fa-fw"></i> Title
+                  <i class="fa-solid fa-bed fa-fw"></i> Beds
                 </span>
                 <span>Value</span>
             </li>
             <li class="d-flex justify-content-between py-2">
                 <span>
-                  <i class="fa-solid fa-dollar-sign fa-fw"></i> Title
+                  <i class="fa-solid fa-dollar-sign fa-fw"></i> Price
                 </span>
                 <span>Value</span>
             </li>
             <li class="d-flex justify-content-between py-2">
                 <span>
-                  <i class="fa fa-star text-light"></i> Title
+                  <i class="fa fa-star text-light"></i> Rate
                 </span>
                 <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="This flat was rated by '07' people">Value</span>
             </li>
