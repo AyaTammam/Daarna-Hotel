@@ -1,2 +1,2 @@
-# Daarna-Hotel-Org
+# Daarna-Hotel
 For A Graduation Project
