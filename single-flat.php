@@ -5,80 +5,38 @@
   // For Body Name
   $Page = 'flatPage';
   require 'global/header.php';
-  echo '<pre>';
-  print_r(substr($_SERVER['HTTP_REFERER'], 43, 10));
-  echo '</pre>';
-  echo '<pre>';
-  print_r($_SERVER['HTTP_REFERER']);
-  echo '</pre>';
-  // if (COUNT($_SESSION) > 0)
-  // {
-  //   if (isset($_SESSION['AdminId']))
-  //   {
-  //     if (substr($_SERVER['HTTP_REFERER'], 43, 10) === 'floors.php')
-  //     {
-        ?>
-        <!-- Start Breadcrumb -->
-        <!-- <nav class="p-2 mb-2 rounded navBredcrumb" aria-label="breadcrumb">
-          <div class="container">
-            <ol class="breadcrumb my-3">
-              <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/index.php"><?php echo $lang['ControlPanel']; ?></a></li>
-              <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/floors.php"><?php echo $lang['Floors']; ?></a></li>
-              <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/floors.php?Page=Flats&Id=<?php echo $_GET['Id']; ?>"><?php echo $lang['Floor'],' [ ', $_GET['Id'], ' ]'; ?></a></li>
-              <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['FlatData'],' [ ', $_GET['Id'], ' ]'; ?></li>
-            </ol>
-          </div>
-        </nav> -->
-        <!-- End Breadcrumb -->
-        <?php
-      // }
-      // else
-      // {
-        ?>
-        <!-- Start Breadcrumb -->
-        <!-- <nav class="p-2 mb-4 rounded navBredcrumb" aria-label="breadcrumb">
-          <div class="container">
-            <ol class="breadcrumb my-3">
-              <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="index.php"><?php echo $lang['Home']; ?></a></li>
-              <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['FlatData']; ?></li>
-            </ol>
-          </div>
-        </nav> -->
-        <!-- End Breadcrumb -->
-        <?php
-    //   }
-    // }
-    // elseif (isset($_SESSION['ReceptionId'])) 
-    // {
-    //   ?>
-      <!-- Start Breadcrumb -->
-      <!-- <nav class="p-2 mb-4 rounded navBredcrumb" aria-label="breadcrumb">
-        <div class="container">
-          <ol class="breadcrumb my-3">
-            <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/reception/index.php"><?php echo $lang['ControlPanel']; ?></a></li>
-            <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['FlatData']; ?></li>
-          </ol>
-        </div>
-      </nav> -->
-      <!-- End Breadcrumb -->
-      <?php
-    // }
-    // else
-    // {
-      ?>
-      <!-- Start Breadcrumb -->
-      <!-- <nav class="p-2 mb-4 rounded navBredcrumb" aria-label="breadcrumb">
-        <div class="container">
-          <ol class="breadcrumb my-3">
-            <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/client/index.php"><?php echo $lang['ControlPanel']; ?></a></li>
-            <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['FlatData']; ?></li>
-          </ol>
-        </div>
-      </nav> -->
-      <!-- End Breadcrumb -->
-      <?php
-  //   }
-  // }
+  if (substr($_SERVER['HTTP_REFERER'], 43, 10) === 'floors.php')
+  {
+    ?>
+    <!-- Start Breadcrumb -->
+    <nav class="p-2 mb-2 rounded navBredcrumb" aria-label="breadcrumb">
+      <div class="container">
+        <ol class="breadcrumb my-3">
+          <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/index.php"><?php echo $lang['ControlPanel']; ?></a></li>
+          <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/floors.php"><?php echo $lang['Floors']; ?></a></li>
+          <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/floors.php?Page=Flats&Id=<?php echo $_GET['Id']; ?>"><?php echo $lang['Floor'],' [ ', $_GET['FloorId'], ' ]'; ?></a></li>
+          <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['FlatData'],' [ ', $_GET['Id'], ' ]'; ?></li>
+        </ol>
+      </div>
+    </nav>
+    <!-- End Breadcrumb -->
+    <?php
+  }
+  else
+  {
+    ?>
+    <!-- Start Breadcrumb -->
+    <nav class="p-2 mb-4 rounded navBredcrumb" aria-label="breadcrumb">
+      <div class="container">
+        <ol class="breadcrumb my-3">
+          <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="index.php"><?php echo $lang['Home']; ?></a></li>
+          <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['Floor'],' [ ', $_GET['FloorId'], ' ]', ' | ', $lang['FlatData'],' [ ', $_GET['Id'], ' ]'; ?></li>
+        </ol>
+      </div>
+    </nav>
+    <!-- End Breadcrumb -->
+    <?php
+  }
   ?>
   <!-- Start Single Flat Information -->
   <section class="section-single-flat my-3">

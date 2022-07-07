@@ -230,7 +230,7 @@ $(function ()
             </td><td>${Word[msg[indexInArray].View]}
             </td><td>${msg[indexInArray].Area}
             </td><td>${msg[indexInArray].UserName}
-            </td><td><a class="DeleteAnyFlat text-danger me-3" role="botton" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash"></i></a><a href="/Daarna-Hotel/single-flat.php?Page=Flats&Id=${msg[indexInArray].FlatId}" class="LinkShowFlat text-info" aria-label="${Word.Show}" data-balloon-pos="up"><i class="far fa-eye fs-5"></i></a></td></tr>`
+            </td><td><a class="DeleteAnyFlat text-danger me-3" role="botton" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash"></i></a><a href="/Daarna-Hotel/single-flat.php?Page=Flats&Id=${msg[indexInArray].FlatId}&FloorId=${FloorId}" class="LinkShowFlat text-info" aria-label="${Word.Show}" data-balloon-pos="up"><i class="far fa-eye fs-5"></i></a></td></tr>`
           });
         }
         $('.table-customize-flat .container').append(`
@@ -641,7 +641,7 @@ $(function ()
               </div>
             </div>
             <div class="card-footer">
-              <a href="single-flat.php" class="btn hvr-icon-back shadow-none"><i class="fas fa-arrow-circle-left hvr-icon mx-2"></i>${Word.MoreDetails}</a>
+              <a href="single-flat.php?FloorId=${FlatsData[index]['FloorId']}&Id=${FlatsData[index]['FlatId']}" class="btn hvr-icon-back shadow-none"><i class="fas fa-arrow-circle-left hvr-icon mx-2"></i>${Word.MoreDetails}</a>
             </div>
           </div>
         </div>`
