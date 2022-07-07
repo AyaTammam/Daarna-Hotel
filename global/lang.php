@@ -178,7 +178,6 @@
 
     // Single Flat Page
     'BookingNow' => 'Booking Now',
-    'FlatData' => 'Flat Data',
     'NationalId' => 'National Id',
     'IDImage' => 'ID Image',
     'AccountImage' => 'Account Image',
@@ -380,7 +379,6 @@
 
     // Single Flat Page
     'BookingNow' => 'احجز الآن',
-    'FlatData' => 'معلومات عن الشقة',
     'NationalId' => 'رقم الوطني',
     'IDImage' => 'صورة الهوية',
     'AccountImage' => 'صورة الحساب',

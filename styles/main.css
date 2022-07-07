@@ -37,6 +37,7 @@ body {
 ::-webkit-scrollbar-thumb:hover { background-color: var(--color-SecondaryText);}
 
 #MyMark {z-index: 9999; font-size: xx-small; display: none;}
+
 #scroll-top
 {
   color: var(--color-PrimaryText);
@@ -71,12 +72,9 @@ body {
 ***********************************
 */
 
-.offcanvas.offcanvas-start,
-.offcanvas .offcanvas-body .accordion-item { width: 20rem;}
+.offcanvas.offcanvas-start, .offcanvas .offcanvas-body .accordion-item { width: 20rem;}
 
-.offcanvas .offcanvas-header {
-  background-image: url("../photos/cloud.webp") !important;
-}
+.offcanvas .offcanvas-header { background-image: url("../photos/cloud.webp") !important; }
 
 /*
 ********************************
@@ -583,15 +581,11 @@ input[type='file']::-webkit-file-upload-button { display: none; }
 
 .dt-pagination a:hover{ color: var(--color-PrimaryText); }
 
-.dt-pagination .active a,.dt-pagination .active a:focus,.dt-pagination .active a:hover{
-  color: var(--color-PrimaryText);
-}
+.dt-pagination .active a,.dt-pagination .active a:focus,.dt-pagination .active a:hover{ color: var(--color-PrimaryText); }
+
 .dt-pagination .dt-ellipsis span{cursor:not-allowed}
 
-.dt-pagination .disabled a,.dt-pagination .disabled a:focus,.dt-pagination .disabled a:hover{
-  cursor:not-allowed;
-  opacity:0.4
-}
+.dt-pagination .disabled a,.dt-pagination .disabled a:focus,.dt-pagination .disabled a:hover{ cursor:not-allowed; opacity:0.4 }
 
 .dt-table{max-width:100%;width:100%;border-spacing:0}
 

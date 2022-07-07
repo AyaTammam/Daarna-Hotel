@@ -15,7 +15,7 @@
           <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/index.php"><?php echo $lang['ControlPanel']; ?></a></li>
           <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/floors.php"><?php echo $lang['Floors']; ?></a></li>
           <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/floors.php?Page=Flats&Id=<?php echo $_GET['Id']; ?>"><?php echo $lang['Floor'],' [ ', $_GET['FloorId'], ' ]'; ?></a></li>
-          <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['FlatData'],' [ ', $_GET['Id'], ' ]'; ?></li>
+          <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['Flat'],' [ ', $_GET['Id'], ' ]'; ?></li>
         </ol>
       </div>
     </nav>
@@ -30,7 +30,7 @@
       <div class="container">
         <ol class="breadcrumb my-3">
           <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="index.php"><?php echo $lang['Home']; ?></a></li>
-          <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['Floor'],' [ ', $_GET['FloorId'], ' ]', ' | ', $lang['FlatData'],' [ ', $_GET['Id'], ' ]'; ?></li>
+          <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['Floor'],' [ ', $_GET['FloorId'], ' ]', ' | ', $lang['Flat'],' [ ', $_GET['Id'], ' ]'; ?></li>
         </ol>
       </div>
     </nav>
