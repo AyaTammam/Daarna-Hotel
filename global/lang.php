@@ -189,7 +189,7 @@
     'Cancel' => 'Cancel',
     'FlatInformation' => 'Flat Information',
     'FlatInfo' => 'Flat Info:',
-    'OtherImages' => 'Other Images:',
+    'FlatImages' => 'Flat Images:',
 
     // Footer
     'HotelName' => 'Daarna Hotel',
@@ -390,7 +390,7 @@
     'Cancel' => 'إلغاء الأمر',
     'FlatInformation' => 'معلومات الشقة',
     'FlatInfo' => ':خصائص الشقة',
-    'OtherImages' => ':صور أخرى',
+    'FlatImages' => ':صور الشقة',
 
 
     // Footer

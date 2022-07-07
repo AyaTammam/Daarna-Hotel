@@ -309,6 +309,7 @@ input[type = 'color']::-moz-color-swatch {
 .EditAnyEmployee:hover,
 .BlockAnyEmployee:hover { color: var(--color-SecondaryText) !important; }
 
+.containerMainImageAndDelete .MainImage,
 .SectionFlatsShow .card-body svg,
 .ButtonFormAddServices:hover,
 .BottomAddFeatuerToFlat:hover,
@@ -411,6 +412,8 @@ input[type='file']::-webkit-file-upload-button { display: none; }
   background-color: var(--color-BackgroundBody) !important;
   border-bottom: 1px solid var(--color-InputBoxShadowSelect) !important;
 }
+
+.containerMainImageAndDelete { border: 1px solid var(--color-PrimaryText);}
 
 .section-single-flat .EditMainImg,
 .section-single-flat .RemoveImgFromFlat {

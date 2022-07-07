@@ -141,7 +141,7 @@
               </div>
             </div>
             <div class="col-6">
-              <h4 class="p-1 mt-2"><?php echo $lang['OtherImages']; ?></h4>
+              <h4 class="p-1 mt-2"><?php echo $lang['FlatImages']; ?></h4>
             </div>
             <div class="col-6 mt-2 d-flex align-items-center">
               <input type="file" class="form-control shadow-none" name="FlatImages[]" accept="image/webp" id="FlatImages" multiple hidden>
@@ -149,6 +149,14 @@
             </div>
           </div>
           <div id="flatimages">
+            <div class="containerMainImageAndDelete position-relative" id="2">
+              <img class="img-fluid" src="photos/hotel1.jpg" />
+              <div class="MainImage position-absolute bottom-0 start-0 p-2"><i class="fa-solid fa-house fa-fw"></i></div>
+              <div class="EditMainImg position-absolute bottom-0 end-0 text-center">
+                <input type="file" class="form-control shadow-none" name="FlatMainImage" accept="image/webp" id="FlatMainImage" hidden>
+                <button type="button" class="btn text-success shadow-none" id="EditFlatMainImage" aria-label="<?php echo $lang['Edit']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fas fa-edit fa-fw"></i></button>
+              </div>
+            </div>
             <div class="containerImageAndDelete p-1 position-relative" id="1">
               <img class="img-fluid active" src="photos/hotel1.jpg" />
               <div class="RemoveImgFromFlat position-absolute bottom-0 end-0 text-center">
@@ -171,13 +179,6 @@
               <img class="img-fluid" src="photos/hotel1.jpg" />
               <div class="RemoveImgFromFlat position-absolute bottom-0 end-0 text-center">
                 <button type="button" class="btn text-danger shadow-none" id="removeFlatImage" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="<?php echo $lang['Delete']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash fa-fw"></i></button>
-              </div>
-            </div>
-            <div class="containerMainImageAndDelete p-1 position-relative" id="2">
-              <img class="img-fluid" src="photos/hotel1.jpg" />
-              <div class="EditMainImg position-absolute bottom-0 end-0 text-center">
-                <input type="file" class="form-control shadow-none" name="FlatMainImage" accept="image/webp" id="FlatMainImage" hidden>
-                <?php echo $lang['MainImage']; ?><button type="button" class="btn text-success shadow-none" id="EditFlatMainImage" aria-label="<?php echo $lang['Edit']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fas fa-edit fa-fw"></i></button>
               </div>
             </div>
           </div>
