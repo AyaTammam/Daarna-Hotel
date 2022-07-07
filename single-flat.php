@@ -5,22 +5,48 @@
   // For Body Name
   $Page = 'flatPage';
   require 'global/header.php';
+  echo '<pre>';
+  print_r(substr($_SERVER['HTTP_REFERER'], 43, 10));
+  echo '</pre>';
+  echo '<pre>';
+  print_r($_SERVER['HTTP_REFERER']);
+  echo '</pre>';
   // if (COUNT($_SESSION) > 0)
   // {
   //   if (isset($_SESSION['AdminId']))
   //   {
-  //     ?>
-      <!-- Start Breadcrumb -->
-      <!-- <nav class="p-2 mb-4 rounded navBredcrumb" aria-label="breadcrumb">
-        <div class="container">
-          <ol class="breadcrumb my-3">
-            <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/index.php"><?php echo $lang['ControlPanel']; ?></a></li>
-            <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['FlatData']; ?></li>
-          </ol>
-        </div>
-      </nav> -->
-      <!-- End Breadcrumb -->
-      <?php
+  //     if (substr($_SERVER['HTTP_REFERER'], 43, 10) === 'floors.php')
+  //     {
+        ?>
+        <!-- Start Breadcrumb -->
+        <!-- <nav class="p-2 mb-2 rounded navBredcrumb" aria-label="breadcrumb">
+          <div class="container">
+            <ol class="breadcrumb my-3">
+              <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/index.php"><?php echo $lang['ControlPanel']; ?></a></li>
+              <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/floors.php"><?php echo $lang['Floors']; ?></a></li>
+              <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/floors.php?Page=Flats&Id=<?php echo $_GET['Id']; ?>"><?php echo $lang['Floor'],' [ ', $_GET['Id'], ' ]'; ?></a></li>
+              <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['FlatData'],' [ ', $_GET['Id'], ' ]'; ?></li>
+            </ol>
+          </div>
+        </nav> -->
+        <!-- End Breadcrumb -->
+        <?php
+      // }
+      // else
+      // {
+        ?>
+        <!-- Start Breadcrumb -->
+        <!-- <nav class="p-2 mb-4 rounded navBredcrumb" aria-label="breadcrumb">
+          <div class="container">
+            <ol class="breadcrumb my-3">
+              <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="index.php"><?php echo $lang['Home']; ?></a></li>
+              <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" aria-current="page"><?php echo $lang['FlatData']; ?></li>
+            </ol>
+          </div>
+        </nav> -->
+        <!-- End Breadcrumb -->
+        <?php
+    //   }
     // }
     // elseif (isset($_SESSION['ReceptionId'])) 
     // {
@@ -57,61 +83,144 @@
   <!-- Start Single Flat Information -->
   <section class="section-single-flat my-3">
     <div class="container">
-      <h1 class="text-center mb-3">
-        Floor:
-        <span>1</span>
-        - Flat:
-        <span>07</span>
-      </h1>
+      <h1 class="text-center mb-3"><?php echo $lang['FlatInformation']; ?></h1>
       <div class="row">
         <div class="col-lg-4 mb-2 mb-lg-0">
-          <ul class="list-unstyled lh-base">
-            <li class="d-flex justify-content-between py-2">
-              <span>
-                <i class="fa-solid fa-binoculars fa-fw"></i> View
-              </span>
-              <span>Value</span>
-            </li>
-            <li class="d-flex justify-content-between py-2">
-              <span>
-                <i class="fa-solid fa-maximize"></i>  Area
-              </span>
-              <span>Value</span>
-            </li>
-            <li class="d-flex justify-content-between py-2">
-                <span>
-                  <i class="fa-solid fa-house fa-fw"></i> Rooms
-                </span>
-                <span>Value</span>
-            </li>
-            <li class="d-flex justify-content-between py-2">
-                <span>
-                  <i class="fa-solid fa-bed fa-fw"></i> Beds
-                </span>
-                <span>Value</span>
-            </li>
-            <li class="d-flex justify-content-between py-2">
-                <span>
-                  <i class="fa-solid fa-dollar-sign fa-fw"></i> Price
-                </span>
-                <span>Value</span>
-            </li>
-            <li class="d-flex justify-content-between py-2">
-                <span>
-                  <i class="fa fa-star text-light"></i> Rate
-                </span>
-                <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="This flat was rated by '07' people">Value</span>
-            </li>
-          </ul>
-          <div class="thumbnails" id="thumbnails">
-            <h2 class="h5">Thumbnails Image</h2>
-            <div id="flatimages">
-              <img src="photos/hotel1.jpg" alt="img" class="img-fluid active p-1">
-              <img src="photos/hotel1.jpg" alt="img" class="img-fluid p-1">
-              <img src="photos/hotel1.jpg" alt="img" class="img-fluid p-1">
-              <img src="photos/hotel1.jpg" alt="img" class="img-fluid p-1">
-              <img src="photos/hotel1.jpg" alt="img" class="img-fluid p-1">
-              <img src="photos/hotel1.jpg" alt="img" class="img-fluid p-1">
+          <div class="row">
+            <div class="col-6">
+              <h4><?php echo $lang['FlatInfo']; ?></h4>
+            </div>
+            <div class="col-6">
+              <a class="EditFlatInfo text-success" id="EditFlatInfo" role="botton" aria-label="<?php echo $lang['Edit']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fas fa-edit fa-fw"></i></a>
+            </div>
+            <div class="col-6 d-flex justify-content-end d-none align-items-center fs-5">
+              <a class="save text-success me-2" id="save" role="botton" aria-label="<?php echo $lang['Save']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-check fa-fw"></i></a>
+              <a class="Cancel text-danger" id="Cancel" role="botton" aria-label="<?php echo $lang['Cancel']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-xmark fa-fw"></i></a>
+            </div>
+            <div class="col-6 bgDark">
+              <div class="p-1 d-flex align-items-center">
+                <i class="fa-solid fa-stairs fa-fw me-2"></i>
+                <span class="ms-5">05</span>
+                <select class="form-select form-select-sm shadow-none d-none" name="Floor" id="Floor">
+                  <option value="North"><?php echo $lang['North']; ?></option>
+                  <option value="East"><?php echo $lang['East']; ?></option>
+                  <option value="South"><?php echo $lang['South']; ?></option>
+                  <option value="West"><?php echo $lang['West']; ?></option>
+                  <option value="NorthEast"><?php echo $lang['NorthEast']; ?></option>
+                  <option value="EastSouth"><?php echo $lang['EastSouth']; ?></option>
+                  <option value="SouthWest"><?php echo $lang['SouthWest']; ?></option>
+                  <option value="WestNorth"><?php echo $lang['WestNorth']; ?></option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6 bgDark">
+              <div class="p-1 d-flex align-items-center">
+                <i class="fa-solid fa-door-closed fa-fw me-2"></i>
+                <span class="ms-5">05</span>
+                <input type="number" name="Flat" class="form-control form-control-sm shadow-none d-none" id="Flat" min="1" placeholder="1" autocomplete="off">
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-1 d-flex align-items-center">
+                <i class="fa-solid fa-binoculars fa-fw me-2"></i>
+                <span class="ms-5">SouthWest</span>
+                <select class="form-select form-select-sm shadow-none d-none" name="View" id="View">
+                  <option value="North"><?php echo $lang['North']; ?></option>
+                  <option value="East"><?php echo $lang['East']; ?></option>
+                  <option value="South"><?php echo $lang['South']; ?></option>
+                  <option value="West"><?php echo $lang['West']; ?></option>
+                  <option value="NorthEast"><?php echo $lang['NorthEast']; ?></option>
+                  <option value="EastSouth"><?php echo $lang['EastSouth']; ?></option>
+                  <option value="SouthWest"><?php echo $lang['SouthWest']; ?></option>
+                  <option value="WestNorth"><?php echo $lang['WestNorth']; ?></option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-1 d-flex align-items-center">
+                <i class="fa-solid fa-maximize fa-fw me-2"></i>
+                <span class="ms-5">05</span>
+                <input type="number" name="Area" class="form-control form-control-sm shadow-none d-none" id="FlatArea" min="1" placeholder="m&sup2" autocomplete="off">
+              </div>
+            </div>
+            <div class="col-6 bgDark">
+              <div class="p-1">
+                <i class="fa-solid fa-house fa-fw"></i>
+                <span class="ms-5">05</span>
+              </div>
+            </div>
+            <div class="col-6 bgDark">
+              <div class="p-1">
+                <i class="fa-solid fa-bed fa-fw"></i>
+                <span class="ms-5">05</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-1">
+                <i class="fa-solid fa-bath fa-fw"></i>
+                <span class="ms-5">05</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-1">
+                <i class="fa-solid fa-dollar-sign fa-fw"></i>
+                <span class="ms-5">05</span>
+              </div>
+            </div>
+            <div class="col-6 bgDark">
+              <div class="p-1">
+                <i class="fa fa-star text-light fa-fw"></i>
+                <span class="ms-5">Rate</span>
+              </div>
+            </div>
+            <div class="col-6 bgDark">
+              <div class="p-1">
+                <i class="fa-regular fa-star" id="1"></i>
+                <i class="fa-regular fa-star" id="2"></i>
+                <i class="fa-regular fa-star" id="3"></i>
+                <i class="fa-regular fa-star" id="4"></i>
+                <i class="fa-regular fa-star" id="5"></i>
+              </div>
+            </div>
+            <div class="col-6">
+              <h4 class="p-1 mt-2"><?php echo $lang['OtherImages']; ?></h4>
+            </div>
+            <div class="col-6 mt-2 d-flex align-items-center">
+              <input type="file" class="form-control shadow-none" name="FlatImages[]" accept="image/webp" id="FlatImages" multiple hidden>
+              <a class="AddImages text-success" id="AddImagesForFlat" role="botton" aria-label="<?php echo $lang['Add']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-cloud-arrow-up fa-fw fs-4"></i></a>
+            </div>
+          </div>
+          <div id="flatimages">
+            <div class="containerImageAndDelete p-1 position-relative" id="1">
+              <img class="img-fluid active" src="photos/hotel1.jpg" />
+              <div class="RemoveImgFromFlat position-absolute bottom-0 end-0 text-center">
+                <button type="button" class="btn text-danger shadow-none" id="removeFlatImage" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="<?php echo $lang['Delete']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash fa-fw"></i></button>
+              </div>
+            </div>
+            <div class="containerImageAndDelete p-1 position-relative" id="1">
+              <img class="img-fluid" src="photos/hotel1.jpg" />
+              <div class="RemoveImgFromFlat position-absolute bottom-0 end-0 text-center">
+                <button type="button" class="btn text-danger shadow-none" id="removeFlatImage" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="<?php echo $lang['Delete']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash fa-fw"></i></button>
+              </div>
+            </div>
+            <div class="containerImageAndDelete p-1 position-relative" id="1">
+              <img class="img-fluid" src="photos/hotel1.jpg" />
+              <div class="RemoveImgFromFlat position-absolute bottom-0 end-0 text-center">
+                <button type="button" class="btn text-danger shadow-none" id="removeFlatImage" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="<?php echo $lang['Delete']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash fa-fw"></i></button>
+              </div>
+            </div>
+            <div class="containerImageAndDelete p-1 position-relative" id="1">
+              <img class="img-fluid" src="photos/hotel1.jpg" />
+              <div class="RemoveImgFromFlat position-absolute bottom-0 end-0 text-center">
+                <button type="button" class="btn text-danger shadow-none" id="removeFlatImage" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="<?php echo $lang['Delete']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash fa-fw"></i></button>
+              </div>
+            </div>
+            <div class="containerMainImageAndDelete p-1 position-relative" id="2">
+              <img class="img-fluid" src="photos/hotel1.jpg" />
+              <div class="EditMainImg position-absolute bottom-0 end-0 text-center">
+                <input type="file" class="form-control shadow-none" name="FlatMainImage" accept="image/webp" id="FlatMainImage" hidden>
+                <?php echo $lang['MainImage']; ?><button type="button" class="btn text-success shadow-none" id="EditFlatMainImage" aria-label="<?php echo $lang['Edit']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fas fa-edit fa-fw"></i></button>
+              </div>
             </div>
           </div>
         </div>
@@ -121,6 +230,31 @@
           </div>
         </div>
       </div>
+      <!-- Start Modal For Delete -->
+      <div class="modal fade" id="confirmTheDelete" data-bs-keyboard="false" tabindex="-1" aria-labelledby="WarningTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-warning" id="WarningTitle"><i class="fas fa-exclamation me-2 fs-5"></i><?php echo $lang['Warning']; ?></h5>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex align-items-center" role="alert">
+                <svg class="mx-2 text-warning" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+                <div class="content">
+                  <?php echo $lang['Warning:AreYouSureAboutThat']; ?>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><?php echo $lang['Close']; ?></button>
+              <button type="button" class="btn btn-outline-danger" id="ButtonRemoveFlatImage" data-bs-dismiss="modal"><?php echo $lang['Delete']; ?></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Modal For Delete -->
     </div>
   </section>
   <!-- End Single Flat Information -->
@@ -174,7 +308,7 @@
   <!-- Start Booking Now -->
   <section class="section-booking-now my-3">
     <div class="container">
-      <h2 class="text-center mb-3"><?php echo $lang['BookingNow'] ?></h2>
+      <h2 class="h1 text-center mb-3"><?php echo $lang['BookingNow'] ?></h2>
       <form class="settingsForm was-validated" id="bookingForm">
         <div class="row g-2">
           <?php if (true) 
@@ -221,17 +355,17 @@
             <div class="row">
               <div class="col-12 mb-md-5 mb-2">
                 <label for="EntryDate" class="form-label"><?php echo $lang['EntryDate']; ?></label>
-                <input type="date" class="form-control" name="EntryDate" id="EntryDate" required>
+                <input type="date" class="form-control" name="EntryDate" id="EntryDate" onclick="this.min=new Date(Date.now() + 6.048e+8 ).toISOString().split('T')[0], this.showPicker()" required>
               </div>
-              <div class="col-12 mt-md-5">
+              <div class="col-12 my-md-5 mb-2">
                 <label for="ExitDate" class="form-label"><?php echo $lang['ExitDate']; ?></label>
-                <input type="date" class="form-control" name="ExitDate" id="ExitDate" required>
+                <input type="date" class="form-control" name="ExitDate" id="ExitDate" onclick="this.showPicker()" required>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-success hvr-grow"><i class="fas fa-check-double align-middle"></i> <?php echo $lang['BookingNow']; ?></button>
               </div>
             </div>
           </div>
-        </div>
-        <div class="my-2">
-          <button type="submit" class="btn btn-outline-success hvr-grow"><i class="fas fa-check-double align-middle"></i> <?php echo $lang['BookingNow']; ?></button>
         </div>
       </form>
     </div>
@@ -240,14 +374,14 @@
   <!-- Start Flat Evaluation -->
   <section class="section-flat-evaluation text-center my-3">
     <div class="container">
-      <h1 class="pb-2"><?php echo $lang['FlatEvaluation'] ?></h1>
+      <h2 class="pb-2"><?php echo $lang['FlatRates'] ?></h2>
       <div class="flat-evaluation" style="height: 400px !important;">
         <div class="overflow-auto" style="height: 400px !important;">
           <img src="photos/avatar01.png" alt="avatar" class="mx-auto">
           <h4 class="mt-2">User Name1</h4>
           <div class="row mw-100">
-            <div class="col-md-4 mb-2">
-              <div class="card mx-auto" style="width: 20rem;">
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="card mx-auto" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <h6 class="card-subtitle mb-2 text-muted">
@@ -257,12 +391,16 @@
                     <i class="fa-regular fa-star" id="4"></i>
                     <i class="fa-regular fa-star" id="5"></i>
                   </h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p class="card-text">Some quick example text to build on the card title 
+                    <span id="dots">...</span>
+                    <span id="more">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span>
+                    <a id="btnReadMore"><?php echo $lang['ReadMore']; ?></a>
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4 mb-2">
-              <div class="card mx-auto" style="width: 20rem;">
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="card mx-auto" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title">Special title treatment</h5>
                   <h6 class="card-subtitle mb-2 text-muted">
@@ -276,8 +414,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 mb-2">
-              <div class="card mx-auto" style="width: 20rem;">
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="card mx-auto" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title">Special title treatment</h5>
                   <h6 class="card-subtitle mb-2 text-muted">
@@ -291,8 +429,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 mb-2">
-              <div class="card mx-auto" style="width: 20rem;">
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="card mx-auto" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title">Special title treatment</h5>
                   <h6 class="card-subtitle mb-2 text-muted">
@@ -306,8 +444,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 mb-2">
-              <div class="card mx-auto" style="width: 20rem;">
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="card mx-auto" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title">Special title treatment</h5>
                   <h6 class="card-subtitle mb-2 text-muted">

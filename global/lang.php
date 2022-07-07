@@ -182,9 +182,15 @@
     'NationalId' => 'National Id',
     'IDImage' => 'ID Image',
     'AccountImage' => 'Account Image',
-    'FlatEvaluation' => 'Flat Evaluation',
+    'FlatRates' => 'Flat Rates',
     'EntryDate' => 'Entry Date',
     'ExitDate' => 'Exit Date',
+    'ReadMore' => 'Read More',
+    'ReadLess' => 'Read Less',
+    'Cancel' => 'Cancel',
+    'FlatInformation' => 'Flat Information',
+    'FlatInfo' => 'Flat Info:',
+    'OtherImages' => 'Other Images:',
 
     // Footer
     'HotelName' => 'Daarna Hotel',
@@ -378,9 +384,15 @@
     'NationalId' => 'رقم الوطني',
     'IDImage' => 'صورة الهوية',
     'AccountImage' => 'صورة الحساب',
-    'FlatEvaluation' => 'تقييم الشقة',
+    'FlatRates' => 'تقييم الشقة',
     'EntryDate' => 'تاريخ الدخول',
     'ExitDate' => 'تاريخ الخروج',
+    'ReadMore' => 'عرض المزيد',
+    'ReadLess' => 'عرض أقل',
+    'Cancel' => 'إلغاء الأمر',
+    'FlatInformation' => 'معلومات الشقة',
+    'FlatInfo' => ':خصائص الشقة',
+    'OtherImages' => ':صور أخرى',
 
 
     // Footer

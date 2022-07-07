@@ -40,6 +40,18 @@ $(function ()
   DisplayData();
 
   /*
+    * Cal Function When Mouse Hover
+  */
+  $('.ImageLogo').mouseenter(function ()
+  {
+    $('#MyMark').fadeIn(100, function()
+    {
+      $('#MyMark').fadeOut(100);
+    });
+  }
+  );
+
+  /*
     * Cal Function When Window Scrolling
   */
   $(window).scroll(function () 
@@ -218,7 +230,7 @@ $(function ()
             </td><td>${Word[msg[indexInArray].View]}
             </td><td>${msg[indexInArray].Area}
             </td><td>${msg[indexInArray].UserName}
-            </td><td><a class="DeleteAnyFlat text-danger me-3" role="botton" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash"></i></a><a href="/Daarna-Hotel/single-flat.php" class="LinkShowFlat text-info" aria-label="${Word.Show}" data-balloon-pos="up"><i class="far fa-eye fs-5"></i></a></td></tr>`
+            </td><td><a class="DeleteAnyFlat text-danger me-3" role="botton" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash"></i></a><a href="/Daarna-Hotel/single-flat.php?Page=Flats&Id=${msg[indexInArray].FlatId}" class="LinkShowFlat text-info" aria-label="${Word.Show}" data-balloon-pos="up"><i class="far fa-eye fs-5"></i></a></td></tr>`
           });
         }
         $('.table-customize-flat .container').append(`
@@ -416,7 +428,7 @@ $(function ()
           <div class="dzImgPreview px-2 position-relative" id="${OldHotelImages.indexOf(element)}">
             <img class="mw-100 dzImage rounded-2" src="/Daarna-Hotel/photos/${element}" />
             <div class="dzRemoveImg position-absolute top-0 text-center">
-              <button type="button" class="btn remove_image shadow-none"><i class="fa-solid fa-trash fs-4"></i></button>
+              <button type="button" class="btn remove_image text-danger shadow-none" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash fs-4"></i></button>
             </div>
           </div>`
         );
@@ -1074,17 +1086,18 @@ $(function ()
     var response = SendRequest("POST", data);
     response.done(function () 
     {
-      NewHotelImages.forEach(element => {
-        
+      NewHotelImages.forEach(element =>
+        {
         $('#preview').slick('slickAdd', `
         <div class="dzImgPreview px-2 position-relative" id="${OldHotelImages.length + NewHotelImages.indexOf(element)}">
           <img class="mw-100 dzImage rounded-2" src="${element.dataURL}" />
           <div class="dzRemoveImg position-absolute top-0 text-center">
-            <button type="button" class="btn remove_image shadow-none"><i class="fa-solid fa-trash fs-4"></i></button>
+            <button type="button" class="btn remove_image text-danger shadow-none"  aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash fs-4"></i></button>
           </div>
         </div>`);
       });
       FileDropzone.removeAllFiles();
+      window.location.reload();
     });
   });
 
@@ -1554,34 +1567,138 @@ $(function ()
     ******* Single Flat Page *********
     **********************************
   */
-  $('#calendar').fullCalendar({
-    theme: true,
-    droppable: true,
-    selectable: true,
-    contentHeight: 450,
-    selectAllow: function(selectInfo) {
-      //since we're only interested in whole days, set all times to the start/end of their respective day
-      selectInfo.start.startOf("day");
-      selectInfo.end.startOf("day");
-      
-      var evts = $("#calendar").fullCalendar("clientEvents", function(evt) {
-        var st = evt.start.clone().startOf("day");
-        if (evt.end) { var ed = evt.end.clone().startOf("day"); }
-        else { ed = st; }
+  /**
+    *  Edit Flat information And Cancel And Save
+  */
+  $('#EditFlatInfo').on('click', function()
+  {
+    $(this).parent().next().removeClass('d-none');
+    $('#Floor').prev().addClass('d-none');
+    $('#Floor').removeClass('d-none');
+    $('#Flat').prev().addClass('d-none');
+    $('#Flat').removeClass('d-none');
+    $('#View').prev().addClass('d-none');
+    $('#View').removeClass('d-none');
+    $('#FlatArea').prev().addClass('d-none');
+    $('#FlatArea').removeClass('d-none');
+    $(this).parent().addClass('d-none');
+  });
 
-        //return true if the event overlaps with the selection
-        return (selectInfo.start.isSameOrBefore(ed) && selectInfo.end.isSameOrAfter(st));
-      });
+  $('#Cancel').on('click', function()
+  {
+    $(this).parent().prev().removeClass('d-none');
+    $('#Floor').prev().removeClass('d-none');
+    $('#Floor').addClass('d-none');
+    $('#Flat').prev().removeClass('d-none');
+    $('#Flat').addClass('d-none');
+    $('#View').prev().removeClass('d-none');
+    $('#View').addClass('d-none');
+    $('#FlatArea').prev().removeClass('d-none');
+    $('#FlatArea').addClass('d-none');
+    $(this).parent().addClass('d-none');
+  });
 
-      //return true if there are no events overlapping that day
-      return evts.length == 0;
-    },
-    header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: ''
+  $('#save').on('click', function()
+  {
+    
+  });
+
+  /**
+    * Select Images For Flat
+  */
+  $('#AddImagesForFlat').on('click', function () 
+  {
+    $('#FlatImages').click();
+  });
+
+  /**
+    * Select Images For Flat
+  */
+  $('#EditFlatMainImage').on('click', function () 
+  {
+    $('#FlatMainImage').click();
+  });
+
+  /**
+    * Select Image Flat
+  */
+  let thumbs = document.querySelectorAll('#flatimages img');
+  let bigImg = document.querySelector('#big-image');
+  thumbs.forEach(img => 
+  {
+    img.onclick = () => 
+    {
+      delActive();
+      img.classList.add('active');
+      bigImg.src = img.src;
     }
   });
+
+  function delActive ()
+  {
+    thumbs.forEach(img =>
+    {
+      img.classList.remove('active');
+    });
+  }
+
+  /**
+    * Booking Now 
+  */
+  if ($('body').attr('id') == 'flatPage') 
+  {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: ''
+      },
+      themeSystem: 'bootstrap5',
+      droppable: true,
+      selectable: true,
+      contentHeight: 450,
+      // selectAllow: function(selectInfo) {
+      //   //since we're only interested in whole days, set all times to the start/end of their respective day
+      //   selectInfo.start.startOf("day");
+      //   selectInfo.end.startOf("day");
+        
+      //   var evts = $("#calendar").fullCalendar("clientEvents", function(evt) {
+      //     var st = evt.start.clone().startOf("day");
+      //     if (evt.end) { var ed = evt.end.clone().startOf("day"); }
+      //     else { ed = st; }
+  
+      //     //return true if the event overlaps with the selection
+      //     return (selectInfo.start.isSameOrBefore(ed) && selectInfo.end.isSameOrAfter(st));
+      //   });
+  
+      //   //return true if there are no events overlapping that day
+      //   return evts.length == 0;
+      // },
+    });
+    calendar.render();
+  }
+
+  /**
+    * Select Input Date For Booking
+  */
+  $('#EntryDate').on('click', function()
+  {
+    $('#ExitDate').removeAttr('disabled');
+  })
+
+  $('#ExitDate').on('focus', function()
+  {
+    if ($('#EntryDate').val() != '')
+    {
+      $(this).attr('min', $('#EntryDate').val());
+    }
+    else
+    {
+      $('#EntryDate').focus();
+      $(this).attr('disabled', 'disabled');
+    }
+  })
 
   /**
     * Flat Evaluation Slick
@@ -1603,24 +1720,25 @@ $(function ()
       }
     ]
   });
-});
 
-
-// Single Flat Scripts
-// Selct Image Flat
-let thumbs = document.querySelectorAll('#thumbnails img');
-let bigImg = document.querySelector('#big-image');
-
-thumbs.forEach(img => {
-  img.onclick = () => {
-    delActive()
-    img.classList.add('active')
-    bigImg.src = img.src
-  }
-})
-
-function delActive () {
-  thumbs.forEach(img => {
-    img.classList.remove('active')
+  /**
+    * Function For Read More
+  */
+  $('#btnReadMore').on('click', function() {
+    var dots = document.getElementById("dots"),
+    moreText = document.getElementById("more"),
+    btnText = document.getElementById("btnReadMore");
+    if (dots.style.display === "none")
+    {
+      dots.style.display = "inline";
+      btnText.innerHTML = Word.ReadMore;
+      moreText.style.display = "none";
+    }
+    else
+    {
+      dots.style.display = "none";
+      btnText.innerHTML = Word.ReadLess;
+      moreText.style.display = "inline";
+    }
   })
-}
+});

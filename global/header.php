@@ -16,10 +16,17 @@
       <link rel='stylesheet' href='/Daarna-Hotel/styles/dropzone.min.css'>
       <link rel='stylesheet' href='/Daarna-Hotel/styles/slick.min.css'>
       <link rel='stylesheet' href='/Daarna-Hotel/styles/slick-theme.min.css'>
-      <link rel='stylesheet' href='/Daarna-Hotel/styles/fullCalendar.min.css'>
+      <!-- <link rel='stylesheet' href='/Daarna-Hotel/styles/fullCalendar.min.css'> -->
+      <link rel='stylesheet' href='/Daarna-Hotel/styles/bootstrap-icons.css'>
+      <link rel='stylesheet' href='/Daarna-Hotel/styles/main.min.css'>
       <link rel="preconnect" href="https://fonts.gstatic.com">
     </head>
     <body id="<?php echo $Page; ?>">
+      <!-- Start Digital Signature -->
+      <div id='MyMark' class="position-fixed start-0 top-0 text-black-50">
+        Aya Tammam
+      </div>
+      <!-- End Digital Signature -->
       <!-- Start Scroll To Top -->
       <div id='scroll-top'>
         <i class='fas fa-arrow-circle-up fs-1'></i>

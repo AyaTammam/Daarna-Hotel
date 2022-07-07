@@ -32,6 +32,21 @@
 .offcanvas .offcanvas-body { width: 20rem; background-color: var(--color-background3); }
 
 .offcanvas .offcanvas-body { background-color: var(--color-background3); color: #EAEAEA; }
+
+.section-booking-now #ExitDate { position: relative; }
+
+.section-booking-now input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
 <!-- Js -->
 
 /**

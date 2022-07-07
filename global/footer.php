@@ -56,8 +56,9 @@
     <script src="/Daarna-Hotel/scripts/jstable.min.js"></script>
     <script src='/Daarna-Hotel/scripts/wow.min.js'></script>
     <script src='/Daarna-Hotel/scripts/slick.min.js'></script>
-    <script src='/Daarna-Hotel/scripts/moment.min.js'></script>
-    <script src='/Daarna-Hotel/scripts/fullCalendar.min.js'></script>
+    <!-- <script src='/Daarna-Hotel/scripts/moment.min.js'></script> -->
+    <!-- <script src='/Daarna-Hotel/scripts/fullCalendar.min.js'></script> -->
+    <script src='/Daarna-Hotel/scripts/main.min.js'></script>
     <script>new WOW().init();</script>
     <script src='/Daarna-Hotel/scripts/new.js'></script>
     <script type="text/javascript">
@@ -93,21 +94,5 @@
         });
       }
     </script>
-    <!-- <script type="text/javascript">
-      $(document).ready(function() {
-      var calendar = $('#calendar').fullCalendar(
-        {
-          editable:true,
-          header:{
-            left:'prev,next today',
-            center:'title',
-            right:'month,agendaWeek,agendaDay'
-          },
-          selectable:true,
-          selectHelper:true,
-          editable:true,
-        });
-      });
-    </script> -->
   </body>
 </html>

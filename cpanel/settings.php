@@ -253,7 +253,7 @@
                 </div>
               </div>
               <div class="modal-footer pt-2 pb-0">
-                <button type="submit" id="ButtonAddFeature" class="btn btn-outline-success shadow-none"><i class="fas fa-check-double align-middle"></i> <?php echo $lang['Save']; ?></button>
+                <button type="submit" class="btn btn-outline-success shadow-none"><i class="fas fa-check-double align-middle"></i> <?php echo $lang['Save']; ?></button>
               </div>
             </form>
           </div>
