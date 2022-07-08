@@ -268,7 +268,7 @@
   <section class="section-booking-now my-3">
     <div class="container">
       <h2 class="h1 text-center mb-3"><?php echo $lang['BookingNow'] ?></h2>
-      <form class="settingsForm was-validated" id="bookingForm">
+      <form class="bookingForm was-validated" id="bookingForm">
         <div class="row g-2">
           <?php if (true) 
           {
@@ -333,10 +333,10 @@
   <!-- Start Flat Evaluation -->
   <section class="section-flat-evaluation text-center my-3">
     <div class="container">
-      <h2 class="pb-2"><?php echo $lang['FlatRates'] ?></h2>
+      <h2 class="mb-3"><?php echo $lang['FlatRates'] ?></h2>
       <div class="flat-evaluation" style="height: 400px !important;">
         <div class="overflow-auto" style="height: 400px !important;">
-          <img src="photos/avatar01.png" alt="avatar" class="mx-auto">
+          <img src="photos/avatar01.png" alt="avatar" class="mx-auto rounded-circle img-fluid h-25">
           <h4 class="mt-2">User Name1</h4>
           <div class="row mw-100">
             <div class="col-md-6 col-lg-4 mb-2">

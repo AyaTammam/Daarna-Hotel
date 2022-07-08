@@ -23,52 +23,64 @@
       <section class="MyProfile my-3">
         <div class="container">
           <h1 class="text-center my-3"><?php echo $lang['MyProfile']; ?></h1>
-          <form class="settingsForm was-validated">
-            <div class="row g-2">
-              <div class="col-12 d-flex justify-content-center">
-                <div class="form-floating m-1 w-75">
-                  <input type="name" name="User-Name" class="form-control" id="User-Name" placeholder="UserName" value="admin">
-                  <label for="User-Name"><i class="fa fa-user-circle me-1"></i><?php echo $lang['UserName']; ?></label>
+          <form class="settingsForm was-validated p-4 mb-5" id="settingsForm">
+            <?php
+              if (true)
+              {
+                ?>
+                <div class="row mb-3">
+                  <label for="User-Name" class="col-md-3 col-form-label"><i class="fa fa-user-circle fa-fw me-1"></i><?php echo $lang['UserName']; ?></label>
+                  <div class="col-md-9">
+                    <input type="name" name="User-Name" class="form-control" id="User-Name" placeholder="UserName" value="admin">
+                  </div>
                 </div>
-              </div>
-              <div class="col-12 d-flex justify-content-center">
-                <div class="form-floating m-1 w-75">
-                  <input type="password" class="form-control" name="Password" id="Pass" placeholder="Password">
-                  <label for="Pass"><i class="fas fa-user-lock me-1"></i><?php echo $lang['Password']; ?></label>
+                <div class="row mb-3">
+                  <label for="Pass" class="col-md-3 col-form-label"><i class="fas fa-user-lock fa-fw me-1"></i><?php echo $lang['Password']; ?></label>
+                  <div class="col-md-9">
+                    <input type="password" class="form-control" name="Password" id="Pass" placeholder="Password">
+                  </div>
                 </div>
-              </div>
-              <?php
-                if (true) 
-                {
-                  ?>
-                  <div class="col-12 d-flex justify-content-center">
-                    <div class="form-floating m-1 w-75">
+                <?php
+              }
+              if (false)
+              {
+                ?>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="DisplayAccountImage d-flex justify-content-center">
+                      <img class="ImageAccount img-fluid" src="../photos/logo.WebP" alt="AccountImage">
+                    </div>
+                    <div class="input-group justify-content-center my-2">
+                      <input type="file" class="form-control shadow-none" name="AccountImage" accept="image/*" id="AccountImage" hidden>
+                      <button class="border-0 rounded-pill px-3 py-2" id="CustomAccountImage" type="button"><?php echo $lang['ChangeAccountImage']; ?></button>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="form-floating mb-2">
+                      <input type="name" name="User-Name" class="form-control" id="User-Name" placeholder="UserName" value="admin">
+                      <label for="User-Name"><i class="fa fa-user-circle me-1"></i><?php echo $lang['UserName']; ?></label>
+                    </div>
+                    <div class="form-floating mb-2">
+                      <input type="password" class="form-control" name="Password" id="Pass" placeholder="Password">
+                      <label for="Pass"><i class="fas fa-user-lock me-1"></i><?php echo $lang['Password']; ?></label>
+                    </div>
+                    <div class="form-floating mb-2">
                       <input type="tel" class="form-control" name="Phone" id="Phone" pattern="[0][9][0-9]{8}" value="0990416940" required>
                       <a tabindex="0" role="button" class="position-absolute Phone top-0 end-0 mt-3 mx-5" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Enter a valid phone number that works on the Syrian network">
                         <i class="fas fa-info-circle"></i>
                       </a>
                       <label for="Phone"><i class="fas fa-mobile-alt me-1"></i><?php echo $lang['Phone']; ?></label>
                     </div>
-                  </div>
-                  <div class="col-12 d-flex justify-content-center">
-                    <div class="form-floating m-1 w-75">
+                    <div class="form-floating mb-2">
                       <input type="email" class="form-control" name="Email" id="Email" placeholder="Email" value="a@asd.com" required>
                       <label for="Email"><i class="fas fa-at me-1"></i><?php echo $lang['Email']; ?></label>
                     </div>
                   </div>
-                  <div class="col-12 d-flex justify-content-center">
-                    <div class="input-group my-1 w-75">
-                      <input type="file" class="form-control form-control-lg" name="AccountImage" accept="image/*" id="AccountImage" required>
-                      <label class="input-group-text uploadImg" for="AccountImage"><i class="fas fa-upload" aria-hidden="true"></i></label>
-                    </div>
-                  </div>
-                  <?php
-                }
-              ?>
-              <div class="col text-center">
-                <button type="submit" class="btn btn-success"><i class="fas fa-check-double align-middle"></i> <?php echo $lang['Save']; ?></button>
-              </div>
-            </div>
+                </div>
+                <?php
+              }
+            ?>
+            <button type="submit" class="btn btn-outline-success mt-3 hvr-skew-backward"><i class="fas fa-check-double align-middle"></i> <?php echo $lang['Save']; ?></button>
           </form>
         </div>
       </section>
@@ -109,12 +121,12 @@
               <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-SiteInformation" role="tabpanel" aria-labelledby="nav-SiteInformation-tab">
                   <div class="row">
-                    <div class="col-12 col-md-6 my-3 d-flex flex-column align-items-center">
+                    <div class="col-md-6 my-3 d-flex flex-column align-items-center">
                       <div class="DisplayImage">
-                        <img class="ImageLogo img-fluid" src="../photos/logo.WebP" alt="">
+                        <img class="ImageLogo img-fluid" src="../photos/logo.WebP" alt="LogoImage">
                       </div>
                     </div>
-                    <div class="col-12 col-md-6 my-3">
+                    <div class="col-md-6 my-3">
                       <div class="row">
                         <div class="col-12 my-3">
                           <div class="input-group justify-content-center justify-content-md-start">

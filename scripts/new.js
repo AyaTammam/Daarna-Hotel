@@ -933,6 +933,23 @@ $(function ()
   /**
     * Display Image For Logo
   */
+  $('#CustomAccountImage').on('click', function () 
+  {
+    $('#AccountImage').click();
+  });
+  $('#AccountImage').on('change', function () 
+  {
+    var reader = new FileReader();
+    reader.addEventListener('load', function () 
+    {
+      $('.ImageAccount').attr('src', reader.result);
+    });
+    reader.readAsDataURL(this.files[0]);
+  });
+
+  /**
+    * Display Image For Logo
+  */
   $('#CustomImageLogo').on('click', function () 
   {
     $('#LogoImage').click();
@@ -1658,6 +1675,16 @@ $(function ()
       droppable: true,
       selectable: true,
       contentHeight: 450,
+      events:
+      [
+        {
+          title: 'Party',
+          start: '2022-08-16',
+          end: '2022-08-18',
+          display: 'background',
+          color: '#ff9f89',
+        },
+      ]
       // selectAllow: function(selectInfo) {
       //   //since we're only interested in whole days, set all times to the start/end of their respective day
       //   selectInfo.start.startOf("day");

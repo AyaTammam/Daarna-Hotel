@@ -81,6 +81,7 @@ body {
 ****** Group SeconderText ******
 ********************************
 */
+.MyProfile #CustomAccountImage,
 .section-flat-evaluation,
 .section-flat-feature,
 .section-booking-now,
@@ -184,6 +185,7 @@ body {
 ** Customize Box Shadow **
 ***************************
 */
+.settingsForm,
 .pageLogin .Formlogin .btn:hover,
 .pageLogin .Formlogin .btn:focus,
 .SectionFlatsShow .card:hover,
@@ -193,6 +195,8 @@ body {
 /* End Index Admin */
 
 /* Start Settings Admin */
+
+.MyProfile .ImageAccount{ height: 200px !important;}
 
 .FormSiteStyle .DisplayImage { width: 250px; }
 
@@ -528,6 +532,7 @@ input[type='file']::-webkit-file-upload-button { display: none; }
   ****** Group BackgroundElement *********
   ****************************************
 */
+.MyProfile #CustomAccountImage,
 .section-single-flat .bgDark,
 .SiteSettings #CustomImageLogo,
 .navbar, .offcanvas, .modal-content, .navbar .user-icon, .offcanvas .user-icon,
