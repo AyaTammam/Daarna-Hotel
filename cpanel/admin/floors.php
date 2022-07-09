@@ -198,7 +198,7 @@
         </div>
         <!-- End Modal Flat Features Empty -->
         <!-- Start New Flat -->
-        <section class="SectionAddFlat my-3">
+        <section class="SectionAddFlat my-3" id="flatfeature">
           <div class="container">
             <h1 class="text-center my-3"><?php echo $lang['NewFlat']; ?></h1>
             <!-- Start Form Add Flat -->
@@ -238,7 +238,7 @@
                   <label class="input-group-text uploadImg px-3" for="OtherImage"><i class="fas fa-upload" aria-hidden="true"></i></label>
                 </div>
               </div>
-              <div class="col-6 mb-2">
+              <div class="col-12 mb-2" id="singleflatfeature">
                 <button class="btn btn-success hvr-wobble-skew shadow-none BottomAddFeatuerToFlat" type="button" data-bs-toggle="modal" data-bs-target="#ComfirmAddFeatureToFlat" aria-label="<?php echo $lang['AddFeature']; ?>" data-balloon-nofocus data-balloon-pos="up"><i class="fas fa-plus"></i></button>
               </div>
               <div class="col-12">

@@ -238,7 +238,7 @@ $(function ()
             </td><td>${Word[msg[indexInArray].View]}
             </td><td>${msg[indexInArray].Area}
             </td><td>${msg[indexInArray].UserName}
-            </td><td><a class="DeleteAnyFlat text-danger me-3" role="botton" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash"></i></a><a href="/Daarna-Hotel/single-flat.php?Id=${msg[indexInArray].FlatId}&FloorId=${FloorId}" class="LinkShowFlat text-info" aria-label="${Word.Show}" data-balloon-pos="up"><i class="far fa-eye fs-5"></i></a></td></tr>`
+            </td><td><a class="DeleteAnyFlat text-danger me-3" role="botton" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash"></i></a><a href="/Daarna-Hotel/single-flat.php?FlatId=${msg[indexInArray].FlatId}&FloorId=${FloorId}" class="LinkShowFlat text-info" aria-label="${Word.Show}" data-balloon-pos="up"><i class="far fa-eye fs-5"></i></a></td></tr>`
           });
         }
         $('.table-customize-flat .container').append(`
@@ -542,41 +542,40 @@ $(function ()
         ]
       });
       var data = new FormData();
-      data.append("ShowFeature", "");
+      data.append("GetDataFlat", "");
+      data.append("FloorId", $('#getflatid').data('floorid'));
+      data.append("FlatId", $('#getflatid').data('flatid'));
       var response = SendRequest("POST", data, "json");
       response.done(function (msg)
       {
-        data = '';
-        if (msg.length > 0) 
-        {
-          $.each(msg, function (indexInArray) 
+        $.each(msg.Features, function (indexInArray) 
+        { 
+          $.each(msg.Features[indexInArray], function (index) 
           { 
-              data += `<tr><td>${msg[indexInArray].Id}
-              </td><td>${(msg[indexInArray].FeatureId == 1 ? Word.Room : (msg[indexInArray].FeatureId == 2 ? Word.Bath : (msg[indexInArray].FeatureId == 3 ? Word.Bed : (msg[indexInArray].FeatureId == 4 ? Word.TV : (msg[indexInArray].FeatureId == 5 ? Word.AC : (msg[indexInArray].FeatureId == 6 ? Word.Stove : (msg[indexInArray].FeatureId == 7 ? Word.Oven : (msg[indexInArray].FeatureId == 8 ? Word.Fridge : (msg[indexInArray].FeatureId == 9 ? Word.Laundry : Word.Cooler)))))))))}
-              </td><td>${msg[indexInArray].Details}
-              </td><td>${msg[indexInArray].Price}
-              </td><td>${msg[indexInArray].UserName}
-              </td><td><a class="DeleteAnyFeature text-danger" role="botton" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fas fa-trash-alt fs-6"></i></a></td></tr>`
-            });
-        }
-        $('.section-flat-feature .container').append(`
-          <div class="table-responsive overflow-visible">
-            <table class="table table-hover table-bordered table-striped text-center" id="table">
-              <thead>
-                <tr>
-                  <th scope="col">${Word.FeatureId}</th>
-                  <th scope="col">${Word.FeatureName}</th>
-                  <th scope="col">${Word.Details}</th>
-                  <th scope="col">${Word.Price}</th>
-                  <th scope="col">${Word.Quantity}</th>
-                  <th scope="col">${Word.Processes}</th>
-                </tr>
-              </thead>
-              <tbody class="responseFeature align-middle">${data}</tbody>
-            </table>
-          </div>`
-        )
-        runTable();
+            if (msg.Features[indexInArray][index].Quantity == null) 
+            {
+              if (Features[msg.Features[indexInArray][index].FeatureName] == undefined) 
+              {
+                Features[msg.Features[indexInArray][index].FeatureName] = new Array();
+                Features[msg.Features[indexInArray][index].FeatureName].push(msg.Features[indexInArray][index]);
+              }
+              else
+              {
+                Features[msg.Features[indexInArray][index].FeatureName].push(msg.Features[indexInArray][index]);
+              }
+            }
+            else
+            {
+              FlatFeatureData.push(msg.Features[indexInArray][index]);
+              if (Object.keys(FeatureType).some(function(type) { return type == msg.Features[indexInArray][index].FeatureName })) 
+              {
+                FeatureType[msg.Features[indexInArray][index].FeatureName] += 1;
+              }
+            }
+          });
+        });
+        CreateFlatFeatureTable(msg.UserType);
+        CreateFullCalendar(msg.Booking);
       });
     }
   }
@@ -649,7 +648,7 @@ $(function ()
               </div>
             </div>
             <div class="card-footer">
-              <a href="single-flat.php?FloorId=${FlatsData[index]['FloorId']}&Id=${FlatsData[index]['FlatId']}" class="btn hvr-icon-back shadow-none"><i class="fas fa-arrow-circle-left hvr-icon mx-2"></i>${Word.MoreDetails}</a>
+              <a href="single-flat.php?FloorId=${FlatsData[index]['FloorId']}&FlatId=${FlatsData[index]['FlatId']}" class="btn hvr-icon-back shadow-none"><i class="fas fa-arrow-circle-left hvr-icon mx-2"></i>${Word.MoreDetails}</a>
             </div>
           </div>
         </div>`
@@ -756,7 +755,7 @@ $(function ()
   /*
     ***************** Function For Create Flat Feature Table *********************
   */
-  function CreateFlatFeatureTable()
+  function CreateFlatFeatureTable(UserType = 'Admin')
   {
     let data = '', FeatureNames = Object.keys(Features);
     $('#FeatureName').children().remove();
@@ -775,26 +774,29 @@ $(function ()
     {
       $.each(FlatFeatureData, function (indexInArray) 
       { 
-        data += '<tr><td>'+ FlatFeatureData[indexInArray].FeatureName +
-        '</td><td>' + FlatFeatureData[indexInArray].Details + 
-        '</td><td>' + FlatFeatureData[indexInArray].Quantity +
-        '</td><td><a class="DeleteAnyFeatureFromFlat text-danger" role="botton" data-id="' + indexInArray + '" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="' + Word.Delete + '" data-balloon-nofocus data-balloon-pos="up"><i class="fas fa-trash-alt fs-6"></i></a></td></tr>'
+        data += `<tr><td>${FlatFeatureData[indexInArray].FeatureName}
+        </td><td>${FlatFeatureData[indexInArray].Details}
+        </td><td>${FlatFeatureData[indexInArray].Quantity}
+        ${
+          UserType == 'Admin' ? `</td><td><a class="DeleteAnyFeatureFromFlat text-danger" role="botton" data-id="${indexInArray}" data-bs-toggle="modal" data-bs-target="#confirmTheDelete" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fas fa-trash-alt fs-6"></i></a></td></tr>` : ''
+        }`
       });
     }
-    $('<div class="table-responsive overflow-visible">' +
-        '<table class="table table-hover table-bordered table-striped text-center" id="table">' +
-          '<thead>' +
-            '<tr>' +
-              '<th scope="col">' + Word.FeatureName + '</th>' +
-              '<th scope="col">' + Word.Details + '</th>' +
-              '<th scope="col">' + Word.Quantity + '</th>' +
-              '<th scope="col">' + Word.Processes +'</th>' +
-            '</tr>' +
-          '</thead>' +
-          '<tbody class="responseFlatFeatuer align-middle">' + data + '</tbody>' +
-        '</table>' +
-      '</div>'
-    ).insertBefore('#BottomAddFlat');
+    let table = `
+    <div class="table-responsive overflow-visible">
+      <table class="table table-hover table-bordered table-striped text-center" id="table">
+        <thead>
+          <tr>
+            <th scope="col">${Word.FeatureName}</th>
+            <th scope="col">${Word.Details}</th>
+            <th scope="col">${Word.Quantity}</th>
+            ${UserType == 'Admin' ? `<th scope="col">${Word.Processes}</th>` : ''}
+          </tr>
+        </thead>
+        <tbody class="responseFlatFeatuer align-middle">${data}</tbody>
+      </table>
+    </div>`;
+    $('#singleflatfeature').append(table);
     runTable();
     console.log("Featrues : ", Features);
     console.log("FlatFeatureData : ", FlatFeatureData);
@@ -811,6 +813,35 @@ $(function ()
     { 
       $('#Details').append("<option value='" + indexInArray + "'>" + Features[Type][indexInArray]['Details'] + "</option>");
     });
+  }
+
+  /*
+    *************** Function For Create Full Calendar In Single Flat ***************
+  */
+  function CreateFullCalendar(data)
+  {
+    let events = new Array();
+    $.each(data, function (indexInArray)
+    { 
+      events.push({
+      title: data[indexInArray].AcceptDate != null ? Word.BookingDone : Word.BookingWait,
+      start: data[indexInArray].EntryDate,
+      end: data[indexInArray].ExitDate,
+      color: $(':root').css('--color-InputBoxShadowSelect')
+      })
+    });
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: ''
+      },
+      themeSystem: 'bootstrap5',
+      contentHeight: 450,
+      events: events
+    });
+    calendar.render();
   }
 
 /*****************************************************************************/
@@ -1331,7 +1362,7 @@ $(function ()
   /*
     * Get Flat Feature Data Index
   */
-  $('.SectionAddFlat .container').on('click', 'tr td .DeleteAnyFeatureFromFlat', function()
+  $('#flatfeature').on('click', 'tr td .DeleteAnyFeatureFromFlat', function()
   {
     Id = $(this).data('id');
   });
@@ -1342,7 +1373,15 @@ $(function ()
   $('#ButtonRemoveFeatureFromFlat').on('click',  function()
   {
     var Type = FlatFeatureData[Id]['FeatureName'];
-    Features[Type].push(FlatFeatureData[Id]);
+    if (Features[Type] == undefined) 
+    {
+      Features[Type] = new Array();
+      Features[Type].push(FlatFeatureData[Id]);
+    }
+    else
+    {
+      Features[Type].push(FlatFeatureData[Id]);
+    }
     FlatFeatureData = jQuery.grep(FlatFeatureData, function(n, i) 
     {
       return (i != Id);
@@ -1372,7 +1411,7 @@ $(function ()
     {
       // Create an FormData object
       var data = new FormData($('#FormNewFlat')[0]);
-      data.append("AddFlat", "");
+      data.append("AddNewFlat", "");
       // Get Floor Id From Breadcrumb Flats Page 
       data.append("FloorId", FloorId);
       $.each(FlatFeatureData, function (indexInArray) 
@@ -1664,34 +1703,6 @@ $(function ()
     {
       img.classList.remove('active');
     });
-  }
-
-  /**
-    * Booking Now 
-  */
-  if ($('body').attr('id') == 'flatPage') 
-  {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: ''
-      },
-      themeSystem: 'bootstrap5',
-      contentHeight: 450,
-      events:
-      [
-        {
-          title: 'Party',
-          start: '2022-08-16',
-          end: '2022-08-18',
-          display: 'background',
-          color: '#ff9f89',
-        },
-      ]
-    });
-    calendar.render();
   }
 
   /**

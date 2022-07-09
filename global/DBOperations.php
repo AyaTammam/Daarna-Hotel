@@ -811,6 +811,41 @@
     }
   }
 
+  
+  /*************************************************************************
+    ********************************
+    ** Handle Requset Single-Flat **
+    ********************************
+  */
+  /**
+    *******************************
+    **** Get All Data Of Flat *****
+    *******************************
+  */
+  if (isset($_POST['GetDataFlat'])) 
+  {
+    if (isset($_POST['FloorId']) && isset($_POST['FlatId'])) 
+    {
+      $GetFlatBooking = $con->prepare("SELECT booking.EntryDate, booking.ExitDate, booking.AcceptDate FROM booking WHERE FloorId = ? AND FlatId = ?"); //AND ExitDate >= CURDATE()
+      $GetFlatBooking->execute(array($_POST['FloorId'], $_POST['FlatId']));
+      $Flat['Booking'] = $GetFlatBooking->fetchAll();
+      $GetAllFeature = $con->prepare("SELECT hotel_features.Id, hotel_features.Details, features.FeatureId, features.FeatureName, flat_features.Quantity FROM features JOIN hotel_features ON features.FeatureId = hotel_features.FeatureId LEFT JOIN flat_features ON flat_features.FeatureId = hotel_features.Id AND flat_features.FloorId = ? AND flat_features.FlatId = ?");
+      $GetAllFeature->execute(array($_POST['FloorId'], $_POST['FlatId']));
+      $Data = $GetAllFeature->fetchAll();
+      foreach ($Data as $value) 
+      {
+        $Response[$value['FeatureName']][] = $value;
+      }
+      $Flat['Features'] = $Response;
+      $Flat['UserType'] = COUNT($_SESSION) > 0 ? array_keys($_SESSION)[1] : '';
+      echo json_encode($Flat);
+    }
+    else
+    {
+      echo http_response_code(501);
+    }
+  }
+
   /***************************************************************
     ********************************
     ******** Handle Function *******
