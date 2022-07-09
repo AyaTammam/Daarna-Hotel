@@ -7,14 +7,14 @@
   require 'global/header.php';
   ?>
   <!-- Start Carousel -->
-  <section class="Carousel pb-3" id="HotelImages">
+  <section class="Carousel mb-3" id="HotelImages">
     
   </section>
   <!-- End Carousel -->
   <!-- Start Flats Show Section -->
-  <section class="SectionFlatsShow text-center py-4" id="SectionFlatsShow">
+  <section class="SectionFlatsShow text-center my-3" id="SectionFlatsShow">
     <div class="container">
-      <h1 class="pb-2"><?php echo $lang['Hotel'] . ' ' . $lang['Flats']; ?></h1>
+      <h1 class="mb-3"><?php echo $lang['Hotel'] . ' ' . $lang['Flats']; ?></h1>
       <!-- Start Accordion -->
       <div class="accordion accordion-flush text-start mb-3" id="accordionSearchHomePage">
         <div class="accordion-item">
@@ -89,39 +89,28 @@
     </div>
   </section>
   <!-- End Flats Show Section -->
-  <!-- Start Section -->
-  <section class="two text-center">
+  <!-- Start Section Evaluation -->
+  <section class="SectionEvaluation text-center my-3" id="SectionEvaluation">
     <div class="container">
-      <h2 class="h1 tw">Section #2</h2>
-      <div class="row">
-        <div class="col">
-          <h2>Section #2</h2>
-          <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit odio molestias eveniet ut. Velit minus ex quos ea ab, modi, nam illum illo numquam sequi perferendis impedit ratione a. Natus.</p>
-        </div>
-        <div class="col">
-          <h2>Section #2</h2>
-          <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit odio molestias eveniet ut. Velit minus ex quos ea ab, modi, nam illum illo numquam sequi perferendis impedit ratione a. Natus.</p>
-        </div>
-        <div class="col">
-          <h2>Section #2</h2>
-          <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit odio molestias eveniet ut. Velit minus ex quos ea ab, modi, nam illum illo numquam sequi perferendis impedit ratione a. Natus.</p>
-        </div>
+      <h1 class="mb-3"><?php echo $lang['Evaluation'] ?></h1>
+      <div>
+        <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta totam voluptatibus quas placeat laborum qui, cupiditate blanditiis earum hic, sed doloribus pariatur nam facilis, voluptates sint. Deleniti ipsam commodi placeat
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore dicta quo, a magnam eius laboriosam itaque voluptatem molestias sequi impedit tempore. Eius aliquid optio nihil rerum quo id harum mollitia!
+        </p>
       </div>
     </div>
   </section>
-  <!-- End Section -->
-  <!-- Start Section -->
-  <section class="SectionAbout text-center py-4" id="SectionAbout">
+  <!-- End Section Evaluation -->
+  <!-- Start Section About -->
+  <section class="SectionAbout text-center my-3" id="SectionAbout">
     <div class="container">
-      <h1 class="pb-2"><?php echo $lang['AboutHotel'] ?></h1>
-      <div class="row">
-        <div class="col">
-          <p class="lead"><?php echo $lang['About'] ?></p>
-        </div>
+      <h1 class="mb-3"><?php echo $lang['AboutUs'] ?></h1>
+      <div>
+        <p class="lead"><?php echo $lang['About'] ?></p>
       </div>
     </div>
   </section>
-  <!-- End Section -->
+  <!-- End Section About -->
 
   <?php
     require 'global/footer.php';

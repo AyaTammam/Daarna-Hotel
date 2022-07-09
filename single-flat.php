@@ -310,17 +310,17 @@
           <div class="col-md-6 mb-2">
             <div id='calendar'></div>
           </div>
-          <div class="col-md-6 my-auto">
-            <div class="row">
-              <div class="col-12 mb-md-5 mb-2">
+          <div class="col-md-6">
+            <div class="row mt-5">
+              <div class="col-12 mb-2">
                 <label for="EntryDate" class="form-label"><?php echo $lang['EntryDate']; ?></label>
                 <input type="date" class="form-control" name="EntryDate" id="EntryDate" onclick="this.min=new Date(Date.now() + 6.048e+8 ).toISOString().split('T')[0], this.showPicker()" required>
               </div>
-              <div class="col-12 my-md-5 mb-2">
+              <div class="col-12">
                 <label for="ExitDate" class="form-label"><?php echo $lang['ExitDate']; ?></label>
                 <input type="date" class="form-control" name="ExitDate" id="ExitDate" onclick="this.showPicker()" required>
               </div>
-              <div class="col-12 d-flex justify-content-center">
+              <div class="col-12 mt-5 d-flex justify-content-center">
                 <button type="submit" class="btn btn-outline-success hvr-grow"><i class="fas fa-check-double align-middle"></i> <?php echo $lang['BookingNow']; ?></button>
               </div>
             </div>

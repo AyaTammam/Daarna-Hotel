@@ -42,20 +42,24 @@
             <i class="fas fa-ellipsis-v fs-3"></i>
           </button>
           <div class="collapse navbar-collapse" id="nav-info">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-lg-0" style="padding-left: 0.15rem">
               <li class="nav-item">
-                <a class="nav-link fw-bold text-decoration-none text-uppercase" href="/Daarna-Hotel/index.php #SectionFlatsShow"><?php echo $lang['Flats']; ?></a>
+                <a class="nav-link fw-bold" href="/Daarna-Hotel/index.php #SectionFlatsShow"><?php echo $lang['Flats']; ?></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fw-bold text-decoration-none text-uppercase" href="/Daarna-Hotel/index.php #SectionAbout"><?php echo $lang['AboutHotel']; ?></a>
+                <a class="nav-link fw-bold" href="/Daarna-Hotel/index.php #SectionEvaluation"><?php echo $lang['Evaluation']; ?></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fw-bold text-decoration-none text-uppercase" href="/Daarna-Hotel/index.php #"><?php echo $lang['Blog']; ?></a>
+                <a class="nav-link fw-bold" href="/Daarna-Hotel/index.php #SectionAbout"><?php echo $lang['AboutUs']; ?></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link fw-bold text-decoration-none text-uppercase lang" id="lang" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?php echo $lang['Lang']; ?>">
-                  <i class="fa-solid fa-language fs-4 fa-fw"></i>
+              <li class="nav-item dropdown dropdown-hover position-static">
+                <a class="nav-link fw-bold dropdown-toggle" href="/Daarna-Hotel/index.php #" id="LanguageDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <?php echo $lang['Language']; ?>
                 </a>
+                <ul class="dropdown-menu mt-0" aria-labelledby="LanguageDropdownMenu" style="border-top-left-radius: 0; border-top-right-radius: 0;">
+                  <li><a class="dropdown-item active" role="button" id="en"><img src="/Daarna-Hotel/photos/SVG/usa.png" alt="USA" class="me-2" style="width: 25px;"><?php echo $lang['English']; ?></a></li>
+                  <li><a class="dropdown-item" role="button" id="ar"><img src="/Daarna-Hotel/photos/SVG/syria.png" alt="Syria" class="me-2" style="width: 25px;"><?php echo $lang['Arabic']; ?></a></li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -131,10 +135,10 @@
                   </h2>
                   <div id="flush-collapseSettings" class="accordion-collapse collapse <?php echo in_array($Page, array('MyProfile', 'SiteSettings')) ? 'show' : '';?>" aria-labelledby="flush-headingSettings" data-bs-parent="#accordionAdmin">
                     <div class="accordion-body py-0">
-                      <a href="/Daarna-Hotel/cpanel/settings.php?Page=MyProfile" class="nav-link <?php echo $Page == 'MyProfile'? 'active' : '';?>">
+                      <a href="/Daarna-Hotel/cpanel/settings.php?Page=MyProfile" class="nav-link RemoveHover <?php echo $Page == 'MyProfile'? 'active' : '';?>">
                         <i class="far fa-circle fa-fw align-middle mx-3"></i> <?php echo $lang['MyProfile']; ?>
                       </a>
-                      <a href="/Daarna-Hotel/cpanel/settings.php?Page=SiteSettings" class="nav-link <?php echo $Page == 'SiteSettings'? 'active' : '';?>">
+                      <a href="/Daarna-Hotel/cpanel/settings.php?Page=SiteSettings" class="nav-link RemoveHover <?php echo $Page == 'SiteSettings'? 'active' : '';?>">
                         <i class="far fa-circle fa-fw align-middle mx-3"></i> <?php echo $lang['SiteSettings']; ?>
                       </a>
                     </div>

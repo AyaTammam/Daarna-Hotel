@@ -23,9 +23,9 @@
       <section class="MyProfile my-3">
         <div class="container">
           <h1 class="text-center my-3"><?php echo $lang['MyProfile']; ?></h1>
-          <form class="settingsForm was-validated p-4 mb-5" id="settingsForm">
+          <form class="settingsForm was-validated p-4 mb-5 <?php echo in_array(array_keys($_SESSION)[1], array('Admin', 'Reception')) ? 'w-75 mx-auto' : ''; ?>" id="settingsForm">
             <?php
-              if (true)
+              if (!isset($_SESSION['Client']))
               {
                 ?>
                 <div class="row mb-3">
@@ -42,7 +42,7 @@
                 </div>
                 <?php
               }
-              if (false)
+              else
               {
                 ?>
                 <div class="row">
@@ -114,7 +114,7 @@
                   <button class="nav-link active" id="nav-SiteInformation-tab" data-bs-toggle="tab" data-bs-target="#nav-SiteInformation" type="button" role="tab" aria-controls="nav-SiteInformation" aria-selected="true"><?php echo $lang['SiteInformation']; ?></button>
                   <button class="nav-link" id="nav-SiteStyle-tab" data-bs-toggle="tab" data-bs-target="#nav-SiteStyle" type="button" role="tab" aria-controls="nav-SiteStyle" aria-selected="false"><?php echo $lang['SiteStyle']; ?></button>
                   <button class="nav-link" id="nav-TableTheme-tab" data-bs-toggle="tab" data-bs-target="#nav-TableTheme" type="button" role="tab" aria-controls="nav-TableTheme" aria-selected="false"><?php echo $lang['TableTheme']; ?></button>
-                  <button class="nav-link" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about" type="button" role="tab" aria-controls="nav-about" aria-selected="false"><?php echo $lang['AboutHotel']; ?></button>
+                  <button class="nav-link" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about" type="button" role="tab" aria-controls="nav-about" aria-selected="false"><?php echo $lang['AboutUs']; ?></button>
                   <button class="nav-link" id="nav-HotelImages-tab" data-bs-toggle="tab" data-bs-target="#nav-HotelImages" type="button" role="tab" aria-controls="nav-HotelImages" aria-selected="false"><?php echo $lang['HotelImages']; ?></button>
                 </div>
               </nav>
@@ -131,7 +131,7 @@
                         <div class="col-12 my-3">
                           <div class="input-group justify-content-center justify-content-md-start">
                             <input type="file" class="form-control shadow-none" name="LogoImage" accept="image/webp" id="LogoImage" hidden>
-                            <button class="border-0 rounded-pill px-3 py-2" id="CustomImageLogo" type="button"><?php echo $lang['ChooseYourLogo']; ?></button>
+                            <button class="border-0 rounded-pill px-3 py-2" id="CustomImageLogo" type="button"><?php echo $lang['ChangeLogo']; ?></button>
                           </div>
                         </div>
                         <div class="col-12 mb-3">
@@ -149,23 +149,23 @@
                 <div class="tab-pane fade" id="nav-SiteStyle" role="tabpanel" aria-labelledby="nav-SiteStyle-tab">
                   <div class="row">
                     <div class="col-6 my-3 d-flex flex-column align-items-center">
-                      <label for="PageColor" class="form-label"><?php echo $lang['ChoosePageColor'] ?></label>
+                      <label for="PageColor" class="form-label"><?php echo $lang['PageColorChange'] ?></label>
                       <input type="color" class="form-control form-control-color shadow-none" name="PageColor" id="PageColor" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" title="<?php echo $lang['ChooseYourColor']; ?>">
                     </div>
                     <div class="col-6 my-3 d-flex flex-column align-items-center">
-                      <label for="ElementColor" class="form-label"><?php echo $lang['ChooseElementColor'] ?></label>
+                      <label for="ElementColor" class="form-label"><?php echo $lang['ElementColorChange'] ?></label>
                       <input type="color" class="form-control form-control-color shadow-none" id="ElementColor" name="ElementColor"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" title="<?php echo $lang['ChooseYourColor']; ?>">
                     </div>
                     <div class="col-6 my-3 d-flex flex-column align-items-center">
-                      <label for="TextPrimaryColor" class="form-label"><?php echo $lang['ChooseTextPrimaryColor'] ?></label>
+                      <label for="TextPrimaryColor" class="form-label"><?php echo $lang['ChangeMainFontColor'] ?></label>
                       <input type="color" class="form-control form-control-color shadow-none" id="TextPrimaryColor" name="TextPrimaryColor" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" title="<?php echo $lang['ChooseYourColor']; ?>">
                     </div>
                     <div class="col-6 my-3 d-flex flex-column align-items-center">
-                      <label for="TextSecondaryColor" class="form-label"><?php echo $lang['ChooseTextSecondaryColor'] ?></label>
+                      <label for="TextSecondaryColor" class="form-label"><?php echo $lang['SecondaryFontColorChange'] ?></label>
                       <input type="color" class="form-control form-control-color shadow-none" id="TextSecondaryColor" name="TextSecondaryColor"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" title="<?php echo $lang['ChooseYourColor']; ?>">
                     </div>
                     <div class="col-6 mb-3 d-flex flex-column align-items-center">
-                      <label for="InputBoxShadowColor" class="form-label"><?php echo $lang['ChooseInputBoxShadowColor'] ?></label>
+                      <label for="InputBoxShadowColor" class="form-label"><?php echo $lang['ChangeFieldBackground'] ?></label>
                       <input type="color" class="form-control form-control-color shadow-none" id="InputBoxShadowColor" name="InputBoxShadowColor"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" title="<?php echo $lang['ChooseYourColor']; ?>">
                     </div>
                   </div>
@@ -247,7 +247,7 @@
                     </div>
                     <div class="col-12 col-md-6 my-3">
                       <label for="ArabicAboutHotel" class="form-label"><?php echo $lang['ArabicAboutHotel'] ?></label>
-                      <textarea name="ArabicAboutHotel" id="ArabicAboutHotel" class="form-control" style="height: 225px; resize:none;" required><?php echo $ar['About'] ?></textarea>
+                      <textarea name="ArabicAboutHotel" dir="rtl" id="ArabicAboutHotel" class="form-control" style="height: 225px; resize:none;" required><?php echo $ar['About'] ?></textarea>
                     </div>
                   </div>
                 </div>

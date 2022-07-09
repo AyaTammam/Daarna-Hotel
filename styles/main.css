@@ -59,12 +59,19 @@ body {
 .breadcrumb .breadcrumb-link,
 .navbar-nav .nav-link { color: var(--color-PrimaryText); }
 
+.navbar .dropdown-menu .dropdown-item,
 .breadcrumb .breadcrumb-link:hover,
 .breadcrumb .breadcrumb-link.active,
 .navbar a:hover,
 .navbar .user-icon:hover,
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link:hover { color: var(--color-SecondaryText) !important; }
+
+.dropdown-item:hover, .dropdown-item:focus { background-color: rgba(255, 255, 255, 0.15); padding-left:25px }
+
+.dropdown-hover:hover>.dropdown-menu { display: inline-block; }
+
+.dropdown-hover>.dropdown-toggle:active { pointer-events: none; }
 
 /*
 ***********************************
@@ -82,6 +89,7 @@ body {
 ********************************
 */
 .MyProfile #CustomAccountImage,
+.SectionEvaluation,
 .section-flat-evaluation,
 .section-flat-feature,
 .section-booking-now,
@@ -109,6 +117,7 @@ body {
 
 .offcanvas .user-icon { width: 70px; height: 70px; font-size: 3rem; }
 
+.navbar .dropdown-menu .dropdown-item.active,
 .offcanvas .user-icon,
 .offcanvas .offcanvas-body .accordion-item .one:hover,
 .offcanvas-body .accordion-button:hover::after,
@@ -120,6 +129,9 @@ body {
   color: var(--color-PrimaryText) !important;
   background-color: var(--color-BackgroundBody) !important;
 }
+
+.offcanvas-body .accordion-item .RemoveHover.active,
+.offcanvas-body .accordion-item .RemoveHover:hover { background-color: transparent !important ;}
 
 .SectionFlatsShow .accordion-button::after,
 .offcanvas-body .accordion-button::after {
@@ -236,24 +248,13 @@ input[type = "color"] {
 
 input[type = 'color']::-webkit-color-swatch-wrapper { padding: 0; }
 
-input[type = 'color']::-webkit-color-swatch {
-  border-radius: 5px;
-  box-shadow: 0 0 20px 5px #0000002a;
-}
+input[type = 'color']::-webkit-color-swatch { border-radius: 5px; box-shadow: 0 0 20px 5px #0000002a; }
 
-input[type = 'color']::-moz-color-swatch {
-  border-radius: 5px;
-  box-shadow: 0 0 20px 5px #0000002a;
-}
+input[type = 'color']::-moz-color-swatch { border-radius: 5px; box-shadow: 0 0 20px 5px #0000002a; }
 
 .FormSiteStyle .ThemeColor { text-align: -webkit-center; }
 
-.FormSiteStyle .Theme {
-  content: '';
-  width: 50px;
-  height: 50px;
-  border: 1px solid black;
-}
+.FormSiteStyle .Theme { content: ''; width: 50px; height: 50px; border: 1px solid black; }
 
 .FormSiteStyle .dropzone { background: var(--color-BackgroundBody) !important; border: 2px  dashed var(--color-SecondaryText) !important;}
 
@@ -456,6 +457,7 @@ input[type='file']::-webkit-file-upload-button { display: none; }
   border-radius: 50% !important;
 }
 
+.SectionEvaluation h1::after,
 .section-flat-evaluation h2::after,
 .section-booking-now .h1::after,
 .section-flat-feature h2::after,
@@ -476,25 +478,6 @@ input[type='file']::-webkit-file-upload-button { display: none; }
 
 .SectionFlatsShow .active { background-color: var(--color-BackgroundElement); color: var(--color-PrimaryText);}
 
-.first, .two, .three {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.first h2 { padding: 15px; }
-
-.overlay { background-color: rgba(0, 0, 0, .2); padding: 30px; margin-bottom: 100px; }
-
-.first h1 { margin-bottom: 20px; padding: 15px; }
-
-.two{ background: url(../photos/slider02.jpg) no-repeat fixed; }
-
-.two .tw { margin-bottom: 20px; padding: 15px; }
-
-.three .th { margin-bottom: 20px; padding: 15px; }
-
 /* End Home Page */
 
 /* Start Footer */
@@ -509,11 +492,7 @@ input[type='file']::-webkit-file-upload-button { display: none; }
 
 .footer, .footer a { color: var(--color-PrimaryText); }
 
-.footer .social-list li {
-  display: inline-flex;
-  opacity:0.7;
-  transition: all .3s ease-in-out;
-}
+.footer .social-list li { display: inline-flex; opacity:0.7; transition: all .3s ease-in-out; }
 
 .footer .social-list li:hover {opacity:1}
 
@@ -533,6 +512,7 @@ input[type='file']::-webkit-file-upload-button { display: none; }
   ****************************************
 */
 .MyProfile #CustomAccountImage,
+.navbar .dropdown-menu,
 .section-single-flat .bgDark,
 .SiteSettings #CustomImageLogo,
 .navbar, .offcanvas, .modal-content, .navbar .user-icon, .offcanvas .user-icon,

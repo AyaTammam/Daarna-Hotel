@@ -22,7 +22,7 @@ $(function ()
     FeatureType = {'Room': 0, 'Bath': 0, 'Bed': 0},
     FlatsData = new Array(),
     StepDataShow = 2,
-    OldHotelImages = ['80904948_slider02.jpg', '1807484928_slider03.jpg', '2002254929_hotel1.jpg', '915906241_Reception.jpg', '1542462680_hotel4.jpg'];
+    OldHotelImages = ['1403147124_1.jpg', '713141381_2.jpg', '1724648252_4.jpg', '1997831304_6.jpg', '1848475713_7.jpg'];
     NewHotelImages = new Array();
     RemovedHotelImages = new Array();
 
@@ -85,6 +85,14 @@ $(function ()
   $(".navbar ul li").click(function () 
   {
     $(this).addClass("active").siblings().removeClass("active");
+  });
+
+  /* 
+    * Remove Class Active Form Navlinks
+  */
+  $(".dropdown a").click(function () 
+  {
+    $(this).addClass("active").parent().siblings().children().removeClass("active");
   });
 
   /* 
@@ -1114,7 +1122,6 @@ $(function ()
         </div>`);
       });
       FileDropzone.removeAllFiles();
-      window.location.reload();
     });
   });
 
@@ -1672,8 +1679,6 @@ $(function ()
         right: ''
       },
       themeSystem: 'bootstrap5',
-      droppable: true,
-      selectable: true,
       contentHeight: 450,
       events:
       [
@@ -1685,23 +1690,6 @@ $(function ()
           color: '#ff9f89',
         },
       ]
-      // selectAllow: function(selectInfo) {
-      //   //since we're only interested in whole days, set all times to the start/end of their respective day
-      //   selectInfo.start.startOf("day");
-      //   selectInfo.end.startOf("day");
-        
-      //   var evts = $("#calendar").fullCalendar("clientEvents", function(evt) {
-      //     var st = evt.start.clone().startOf("day");
-      //     if (evt.end) { var ed = evt.end.clone().startOf("day"); }
-      //     else { ed = st; }
-  
-      //     //return true if the event overlaps with the selection
-      //     return (selectInfo.start.isSameOrBefore(ed) && selectInfo.end.isSameOrAfter(st));
-      //   });
-  
-      //   //return true if there are no events overlapping that day
-      //   return evts.length == 0;
-      // },
     });
     calendar.render();
   }
