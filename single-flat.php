@@ -42,7 +42,7 @@
           <ol class="breadcrumb my-3">
             <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/index.php"><?php echo $lang['ControlPanel']; ?></a></li>
             <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/floors.php"><?php echo $lang['Floors']; ?></a></li>
-            <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/floors.php?Page=Flats&Id=<?php echo $_GET['Id']; ?>"><?php echo $lang['Floor'],' [ ', $FloorId, ' ]'; ?></a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link fw-bold text-decoration-none text-uppercase" href="cpanel/admin/floors.php?Page=Flats&Id=<?php echo $_GET['FlatId']; ?>"><?php echo $lang['Floor'],' [ ', $FloorId, ' ]'; ?></a></li>
             <li class="breadcrumb-item breadcrumb-link fw-bold text-decoration-none text-uppercase active" id="getflatid" data-floorid="<?php echo $FloorId ?>" data-flatid="<?php echo $FlatId ?>" aria-current="page"><?php echo $lang['Flat'],' [ ', $FlatId, ' ]'; ?></li>
           </ol>
         </div>
