@@ -42,18 +42,18 @@
             <i class="fas fa-ellipsis-v fs-3"></i>
           </button>
           <div class="collapse navbar-collapse" id="nav-info">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-lg-0" style="padding-left: 0.15rem">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-left: 0.15rem">
               <li class="nav-item">
-                <a class="nav-link fw-bold" href="/Daarna-Hotel/index.php #SectionFlatsShow"><?php echo $lang['Flats']; ?></a>
+                <a class="nav-link fw-bold" href="/Daarna-Hotel/index.php#SectionFlatsShow"><?php echo $lang['Flats']; ?></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fw-bold" href="/Daarna-Hotel/index.php #SectionEvaluation"><?php echo $lang['Evaluation']; ?></a>
+                <a class="nav-link fw-bold" href="/Daarna-Hotel/index.php#SectionEvaluation"><?php echo $lang['Evaluation']; ?></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fw-bold" href="/Daarna-Hotel/index.php #SectionAbout"><?php echo $lang['AboutUs']; ?></a>
+                <a class="nav-link fw-bold" href="/Daarna-Hotel/index.php#SectionAbout"><?php echo $lang['AboutUs']; ?></a>
               </li>
               <li class="nav-item dropdown dropdown-hover position-static">
-                <a class="nav-link fw-bold dropdown-toggle" href="/Daarna-Hotel/index.php #" id="LanguageDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link fw-bold dropdown-toggle" id="LanguageDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <?php echo $lang['Language']; ?>
                 </a>
                 <ul class="dropdown-menu mt-0" aria-labelledby="LanguageDropdownMenu" style="border-top-left-radius: 0; border-top-right-radius: 0;">

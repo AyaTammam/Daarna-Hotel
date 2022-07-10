@@ -82,17 +82,15 @@ $(function ()
   /* 
     * Remove Class Active Form Navlinks
   */
-  $(".navbar ul li").click(function () 
-  {
-    $(this).addClass("active").siblings().removeClass("active");
-  });
-
-  /* 
-    * Remove Class Active Form Navlinks
-  */
-  $(".dropdown a").click(function () 
+  $(".navbar ul li a").click(function () 
   {
     $(this).addClass("active").parent().siblings().children().removeClass("active");
+  });
+
+  $(window).scroll(function(){
+    window.scrollY > section.offsetTop ? $(".navbar ul li a").removeClass('active') : '';
+    console.log(window.scrollY)
+    console.log($(".SectionFlatsShow").height())
   });
 
   /* 
@@ -435,7 +433,7 @@ $(function ()
         preview.append(`
           <div class="dzImgPreview px-2 position-relative" id="${OldHotelImages.indexOf(element)}">
             <img class="mw-100 dzImage rounded-2" src="/Daarna-Hotel/photos/${element}" />
-            <div class="dzRemoveImg position-absolute top-0 text-center">
+            <div class="dzRemoveImg position-absolute bottom-0">
               <button type="button" class="btn remove_image text-danger shadow-none" aria-label="${Word.Delete}" data-balloon-nofocus data-balloon-pos="up"><i class="fa-solid fa-trash fs-4"></i></button>
             </div>
           </div>`

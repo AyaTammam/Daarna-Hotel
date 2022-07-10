@@ -163,6 +163,8 @@ body {
 
 .pageLogin { background: url(../photos/hotel.webp) no-repeat center center fixed !important; background-size: cover; }
 
+.pageLogin .overlay { background-color: rgba(0, 0, 0, .2); padding: 30px; }
+
 .pageLogin .Formlogin { width: 300px; }
 
 .pageLogin .Formlogin .form-control { box-shadow: 0 0.5rem 1rem var(--color-InputBoxShadowSelect) inset; }
@@ -272,8 +274,8 @@ input[type = 'color']::-moz-color-swatch { border-radius: 5px; box-shadow: 0 0 2
 
 .FormSiteStyle .dzRemoveImg {
   opacity: 0;
-  min-width: 90%;
-  max-width: 90%;
+  /* min-width: 90%;
+  max-width: 90%; */
   -webkit-transition: opacity .2s linear;
   -moz-transition: opacity .2s linear;
   -ms-transition: opacity .2s linear;
@@ -285,11 +287,11 @@ input[type = 'color']::-moz-color-swatch { border-radius: 5px; box-shadow: 0 0 2
 
 .FormSiteStyle .dzImgPreview:hover .dzRemoveImg { opacity: 1; }
 
-@media (max-width: 575.98px) { .FormSiteStyle .dzRemoveImg { padding: 50px 0px 50px 20px !important; margin: 10px 0px !important;} }
+/* @media (max-width: 575.98px) { .FormSiteStyle .dzRemoveImg { padding: 50px 0px 50px 20px !important; margin: 10px 0px !important;} }
 
 @media (min-width: 576px) { .FormSiteStyle .dzRemoveImg { padding: 30px 0 !important; margin: 10px 0 !important;} }
 
-@media (min-width: 991px) { .FormSiteStyle .dzRemoveImg { padding: 40px 0 !important;} }
+@media (min-width: 991px) { .FormSiteStyle .dzRemoveImg { padding: 40px 0 !important;} } */
 
 .FormSiteStyle .slick-arrow::before { color: var(--color-SecondaryText);}
 
@@ -450,12 +452,7 @@ input[type='file']::-webkit-file-upload-button { display: none; }
 
 /* Start Home Page */
 
-.Carousel .CarouselMoving {
-  width: 15px !important;
-  height: 15px !important;
-  border: 1px solid black !important;
-  border-radius: 50% !important;
-}
+/* .SectionFlatsShow, .SectionEvaluation, .SectionAbout { min-height: 575px;} */
 
 .SectionEvaluation h1::after,
 .section-flat-evaluation h2::after,

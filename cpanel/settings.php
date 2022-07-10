@@ -23,7 +23,7 @@
       <section class="MyProfile my-3">
         <div class="container">
           <h1 class="text-center my-3"><?php echo $lang['MyProfile']; ?></h1>
-          <form class="settingsForm was-validated p-4 mb-5 <?php echo in_array(array_keys($_SESSION)[1], array('Admin', 'Reception')) ? 'w-75 mx-auto' : ''; ?>" id="settingsForm">
+          <form class="settingsForm was-validated p-4 rounded-3 mb-5 <?php echo in_array(array_keys($_SESSION)[1], array('Admin', 'Reception')) ? 'w-75 mx-auto' : ''; ?>" id="settingsForm">
             <?php
               if (!isset($_SESSION['Client']))
               {
@@ -110,7 +110,7 @@
             <h1 class="text-center my-3"><?php echo $lang['SiteSettings']; ?></h1>
             <form class="FormSiteStyle was-validated" id="FormSiteStyle" enctype="multipart/form-data">
               <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
                   <button class="nav-link active" id="nav-SiteInformation-tab" data-bs-toggle="tab" data-bs-target="#nav-SiteInformation" type="button" role="tab" aria-controls="nav-SiteInformation" aria-selected="true"><?php echo $lang['SiteInformation']; ?></button>
                   <button class="nav-link" id="nav-SiteStyle-tab" data-bs-toggle="tab" data-bs-target="#nav-SiteStyle" type="button" role="tab" aria-controls="nav-SiteStyle" aria-selected="false"><?php echo $lang['SiteStyle']; ?></button>
                   <button class="nav-link" id="nav-TableTheme-tab" data-bs-toggle="tab" data-bs-target="#nav-TableTheme" type="button" role="tab" aria-controls="nav-TableTheme" aria-selected="false"><?php echo $lang['TableTheme']; ?></button>
@@ -172,7 +172,7 @@
                 </div>
                 <div class="tab-pane fade" id="nav-TableTheme" role="tabpanel" aria-labelledby="nav-TableTheme-tab">
                   <div class="row align-items-center">
-                    <div class="col-12 col-md-6 my-5">
+                    <div class="col-12 col-md-6 my-3">
                       <div class="table-responsive overflow-visible">
                         <table class="table table-hover table-bordered table-striped text-center" id="TableTheme">
                           <thead>
@@ -206,7 +206,7 @@
                         </table>
                       </div>
                     </div>
-                    <div class="col-12 col-md-6 my-3">
+                    <div class="col-12 col-md-6 mb-3">
                       <div class="row ThemeColor">
                         <div class="col-4 my-3">
                           <div class="rounded-pill bg-dark Theme d-flex justify-content-end" id="TableThemeDark" role="button" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="bottom" title="<?php echo $lang['DefaultColor']; ?>"></div>
