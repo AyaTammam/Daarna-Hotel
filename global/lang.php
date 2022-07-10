@@ -190,6 +190,8 @@
     'FlatInformation' => 'Flat Information',
     'FlatInfo' => 'Flat Info:',
     'FlatImages' => 'Flat Images:',
+    'BookingDone' => 'Booking Done',
+    'BookingWait' => 'Booking Wait',
 
     // Footer
     'HotelName' => 'Daarna Hotel',
@@ -393,6 +395,8 @@
     'FlatInformation' => 'معلومات الشقة',
     'FlatInfo' => ':خصائص الشقة',
     'FlatImages' => ':صور الشقة',
+    'BookingDone' => 'تم الحجز',
+    'BookingWait' => 'إنتطار الحجز',
 
 
     // Footer
